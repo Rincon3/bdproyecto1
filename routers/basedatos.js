@@ -22,10 +22,10 @@ router.get('/consultatotalpacientes', async (req, res) => {
   res.send(rows);
 });
 
-router.post('/insertarpacientes', async (req, res) => {
-  const { nombre, apellido, numid } = req.body;
+router.post('/insertarEncuestaprincipal', async (req, res) => {
+  const { edad, eventos_donde } = req.body;
   await client.query(
-    `INSERT INTO pacientes(numid, nombre, apellidos) VALUES('${numid}','${nombre}','${apellido}')`
+    `INSERT INTO principal(edad, eventos_donde) VALUES('${edad}','${eventos_donde}')`
   );
   res.send('INSERTADO');
 });

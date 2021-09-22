@@ -9,51 +9,51 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-const pacientes = [];
+const personas = [];
 
 const mountRoutes = require('./routers');
 
 mountRoutes(app);
 
 app.get('/consultar', (req, res) => {
-  res.send(pacientes);
+  res.send(s);
 });
 
 app.put('/guardar', (req, res) => {
-  adicionapaciente(req.body);
+  adicionarpersona(req.body);
   res.send('GUARDADO OK !!!');
 });
 
 app.delete('/borrar', (req, res) => {
-  borrapaciente(req.body.id);
+  borrarpersona(req.body.id);
   res.send('BORRADO OK !!!');
 });
 
 app.post('/actualizadatos', (req, res) => {
-  actualizapaciente(req.body);
+  actualizarpersona(req.body);
   res.send('ACTUALIZADO OK !!!');
 });
 
-const adicionapaciente = (paciente) => {
-  pacientes.push(paciente);
-  return paciente;
+const adicionarpersona = (persona) => {
+  personas.push(persona);
+  return persona;
 };
 
-const borrapaciente = (id) => {
-  const index = pacientes.findIndex((paciente) => paciente.id === id);
+const borrarpersona = (id) => {
+  const index = personas.findIndex((persona) => persona.id === id);
 
   if (index !== -1) {
     return pacientes.splice(index, 1)[0];
   }
 };
 
-const actualizapaciente = (newdatospaciente) => {
-  const index = pacientes.findIndex(
-    (paciente) => paciente.id === newdatospaciente.id
+const actualizarpersona = (newdatospersona) => {
+  const index = personas.findIndex(
+    (persona) => persona.id === newdatospersona.id
   );
 
   if (index !== -1) {
-    return (pacientes[index] = newdatospaciente);
+    return (personas[index] = newdatospersona);
   }
 };
 

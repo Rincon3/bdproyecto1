@@ -100,7 +100,7 @@ export const Registroinfo = () => {
             
     return (
         <div  className="formdb__box-containter">
-            <h3 className="auth__title">Envio INFO</h3>
+            <h3 className="auth__title">ESTA ES DIFERENTE</h3>
             <Form>
 
               <br />

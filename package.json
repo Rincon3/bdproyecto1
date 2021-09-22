@@ -1,7 +1,6 @@
 {
-  "name": "Backend",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "engines": {
     "node": "10.14.2",
@@ -12,16 +11,34 @@
     "server": "nodemon index.js",
     "cliente": "npm start --prefix cliente",
     "dev": "concurrently \"npm run server\" \"npm run cliente\"",
+    "dev2": "lite-server",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix cliente && npm run build --prefix cliente"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.4",
+    "bootstrap": "^4.6.0",
     "concurrently": "^6.0.0",
     "express": "^4.17.1",
     "express-promise-router": "^4.0.1",
     "nodemon": "^2.0.7",
-    "pg": "^8.3.3"
-  }
+    "pg": "^8.3.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "^4.0.3",
+    "reactstrap": "^8.10.0",
+    "sass": "^1.42.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rincon3/bdproyecto1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rincon3/bdproyecto1/issues"
+  },
+  "homepage": "https://github.com/Rincon3/bdproyecto1#readme",
+  "description": ""
 }
