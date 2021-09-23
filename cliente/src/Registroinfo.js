@@ -11,15 +11,28 @@ export const Registroinfo = () => {
 
   const [edad, setEdad] = useState('')
   const [eventos_donde, setEventos_donde] = useState('')
-
+  const [lugares_eventos, setLugares_eventos] = useState('')
+  const [dia, setDia] = useState('')
+  const [tipo, setTipo] = useState('')
+  const [transporte, setTransporte] = useState('')
+  const [promo, setPromo] = useState('')
+  const [int_cultura, setInt_cultura] = useState('')
+  const [int_deporte, setInt_deporte] = useState('')
+  
 
 
     const guardabase = async () => {
-        const res = await axios.post('/basedatos/insertarEncuestaprincipal', {edad, eventos_donde });
+        const res = await axios.post('/basedatos/insertarEncuestaprincipal', {edad, eventos_donde, lugares_eventos, dia, tipo, transporte, promo, int_cultura,int_deporte});
         console.log(res.data)
         setEdad('')
         setEventos_donde('')
-
+        setLugares_eventos('')
+        setDia('')
+        setTipo('')
+        setTransporte('')
+        setPromo('')
+        setInt_cultura('')
+        setInt_deporte('')
       }
     const  consultabase = async () => {
         const res = await axios.get('/basedatos/consultatotalpacientes');
@@ -68,6 +81,42 @@ export const Registroinfo = () => {
       const onchangeEventos_donde = (e) => {
         setEventos_donde(e.currentTarget.value);
         console.log(eventos_donde)
+      }
+      //Onchange agregado para lugares_eventos
+      const onchangeLugares_eventos = (e) => {
+        setLugares_eventos(e.currentTarget.value);
+        console.log(lugar_eventos)
+      }
+
+      //Onchange agregado para dia
+      const onchangeDia = (e) => {
+        setDia(e.currentTarget.value);
+        console.log(dia)
+      }
+      //Onchange agregado para tipo
+      const onchangeTipo = (e) => {
+        setTipo(e.currentTarget.value);
+        console.log(tipo)
+      }
+      //Onchange agregado para trasnpote
+      const onchangeTransporte =(e) =>{
+        setTransporte(e.currentTarget.value);
+        console.log(transporte)
+      }
+      //Onchange agregado para promo
+      const onchangePromo = (e) => {
+        setPromo(e.currentTarget.value);
+        console.log(promo)
+      }
+      //Onchange agregado para int_cultura
+      const onchangeInt_cultura = (e) => {
+        setInt_cultura(e.currentTarget.value);
+        console.log(int_cultura)
+      }
+      //Onchange agregado para int_deporte
+      const onchangeInt_deporte = (e) =>{
+        setInt_deporte(e.currentTarget.value);
+        console.log(int_deporte)
       }
 
     const inserta = () => {
@@ -123,6 +172,8 @@ export const Registroinfo = () => {
                   <CustomInput type="radio" id="radioEventodonde2" label="En sitios cerrados" value="sitio cerrado" checked={esSeleccionado(eventos_donde, "sitio cerrado")} onChange={onchangeEventos_donde} />
                 </div>
               </FormGroup>
+
+              
 
 
 

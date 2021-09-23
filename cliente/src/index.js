@@ -1,13 +1,13 @@
 import React from 'react';
-import { BrowserRouter} from 'react-router-dom';
-import { Registroinfo } from './Registroinfo';
+// { BrowserRouter} from 'react-router-dom';
+//import { Registroinfo } from './Registroinfo';
 import ReactDOM from 'react-dom';
 import {Formdb} from './Formdb'
 import './styles/styles.scss'
 
 //Boostrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Router } from 'express';
+//import { Router } from 'express';
 
 ReactDOM.render(
     <Formdb />,
