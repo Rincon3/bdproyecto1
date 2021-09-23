@@ -84,7 +84,7 @@ export const Registroinfo = () => {
       //Onchange agregado para lugares_eventos
       const onchangeLugares_eventos = (e) => {
         setLugares_eventos(e.currentTarget.value);
-        console.log(lugar_eventos)
+        console.log(lugares_eventos)
       }
 
       //Onchange agregado para dia
@@ -172,7 +172,74 @@ export const Registroinfo = () => {
                 </div>
               </FormGroup>
 
-              
+              <FormGroup>
+                <Label for="CheckboxLugareseventos">¿En qué días prefieres que se realicen los eventos?</Label>
+                <div>
+                  <CustomInput type="radio" id="radioLugareseventos1" label="estadios" value="estadios"checked={esSeleccionado(lugares_eventos, "estadios")} onChange={onchangeLugares_eventos}/>
+                  <CustomInput type="radio" id="radioLugareseventos2" label="clubes" value="clubes"checked={esSeleccionado(lugares_eventos, "clubes")} onChange={onchangeLugares_eventos}/>
+                  <CustomInput type="radio" id="radioLugareseventos3" label="centros comerciales" value="centros comerciales"checked={esSeleccionado(lugares_eventos, "centros comerciales")} onChange={onchangeLugares_eventos}/>
+                </div>
+              </FormGroup>
+              <FormGroup>
+                <Label for="CheckboxDia">¿En qué días prefieres que se realicen los eventos?</Label>
+                <div>
+                  <CustomInput type="radio" id="radioDia1" label="Lunes" value="lunes"checked={esSeleccionado(dia, "lunes")} onChange={onchangeDia}/>
+                  <CustomInput type="radio" id="radioDia2" label="martes" value="martes"checked={esSeleccionado(dia, "martes")} onChange={onchangeDia}/>
+                  <CustomInput type="radio" id="radioDia3" label="miercoles" value="miercoles"checked={esSeleccionado(dia, "miercoles")} onChange={onchangeDia}/>
+                  <CustomInput type="radio" id="radioDia4" label="jueves" value="jueves"checked={esSeleccionado(dia, "jueves")} onChange={onchangeDia}/>
+                  <CustomInput type="radio" id="radioDia5" label="viernes" value="viernes"checked={esSeleccionado(dia, "viernes")} onChange={onchangeDia}/>
+                  <CustomInput type="radio" id="radioDia6" label="sabado" value="sabado"checked={esSeleccionado(dia, "sabado")} onChange={onchangeDia}/>
+                  <CustomInput type="radio" id="radioDia7" label="domingo" value="domingo"checked={esSeleccionado(dia, "domingo")} onChange={onchangeDia}/>
+                </div>
+              </FormGroup>
+              <FormGroup>
+                <Label for="CheckboxTipo">¿Qué tipo de eventos te gusta?</Label>
+                <div>
+                  <CustomInput type="radio" id="radioTipo1" label="culturales" value="culturales"checked={esSeleccionado(tipo, "culturales")} onChange={onchangeTipo}/>
+                  <CustomInput type="radio" id="radioTipo2" label="deportivos" value="deportivos"checked={esSeleccionado(tipo, "deportivos")} onChange={onchangeTipo}/>
+                </div>
+              </FormGroup>
+              <FormGroup>
+                <Label for="CheckboxTransporte">¿Qué medio de transporte utilizas para llegar a eventos?</Label>
+                <div>
+                  <CustomInput type="radio" id="radioTransporte1" label="taxi" value="taxi"checked={esSeleccionado(transporte, "taxi")} onChange={onchangeTransporte}/>
+                  <CustomInput type="radio" id="radioTransporte2" label="particular" value="particular"checked={esSeleccionado(transporte, "particular")} onChange={onchangeTransporte}/>
+                  <CustomInput type="radio" id="radioTransporte3" label="servicios publicos" value="servicios publicos"checked={esSeleccionado(transporte, "servicios publicos")} onChange={onchangeTransporte}/>
+                  <CustomInput type="radio" id="radioTransporte4" label="a pie" value="a pie"checked={esSeleccionado(transporte, "a pie")} onChange={onchangeTransporte}/>
+                </div>
+              </FormGroup>
+              <FormGroup>
+                <Label for="CheckboxPromo">¿Por donde te gusta enterarte de los eventos?</Label>
+                <div>
+                  <CustomInput type="radio" id="radioPromo1" label="redes sociales" value="redes sociales"checked={esSeleccionado(promo, "redes sociales")} onChange={onchangePromo}/>
+                  <CustomInput type="radio" id="radioPromo2" label="flyers" value="flyers"checked={esSeleccionado(promo, "flyers")} onChange={onchangePromo}/>
+                  <CustomInput type="radio" id="radioPromo3" label="vallas publicitarias" value="vallas publicitarias"checked={esSeleccionado(promo, "vallas publicitarias")} onChange={onchangePromo}/>
+                  <CustomInput type="radio" id="radioPromo4" label="radio" value="radio"checked={esSeleccionado(promo, "radio")} onChange={onchangePromo}/>
+                  <CustomInput type="radio" id="radioPromo5" label="television" value="television"checked={esSeleccionado(promo, "television")} onChange={onchangePromo}/>
+                </div>
+              </FormGroup>
+              <FormGroup>
+                <Label for="CheckboxInt_cultura">¿Te gustan los eventos culturales?</Label>
+                <div>
+                  <CustomInput type="radio" id="radioInt_cultura1" label="1" value="1"checked={esSeleccionado(int_cultura, "1")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura2" label="2" value="2"checked={esSeleccionado(int_cultura, "2")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura3" label="3" value="3"checked={esSeleccionado(int_cultura, "3")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura4" label="4" value="4"checked={esSeleccionado(int_cultura, "4")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura5" label="5" value="5"checked={esSeleccionado(int_cultura, "5")} onChange={onchangeInt_cultura}/>
+                </div>
+              </FormGroup>
+              <FormGroup>
+                <Label for="CheckboxInt_deporte">¿Te gustan los eventos deportivos?</Label>
+                <div>
+                  <CustomInput type="radio" id="radioInt_deporte1" label="1" value="1"checked={esSeleccionado(int_deporte, "1")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte2" label="2" value="2"checked={esSeleccionado(int_deporte, "2")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte3" label="3" value="3"checked={esSeleccionado(int_deporte, "3")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte4" label="4" value="4"checked={esSeleccionado(int_deporte, "4")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte5" label="5" value="5"checked={esSeleccionado(int_deporte, "5")} onChange={onchangeInt_deporte}/>
+                </div>
+              </FormGroup>
+
+
 
 
 
