@@ -9,16 +9,18 @@ export const Registro2 = () => {
   const [nombre, setNombre] = useState('')
   const [apellido, setApellido] = useState('')
 
-  const [edad, setEdad] = useState('')
-  const [eventos_donde, setEventos_donde] = useState('')
-
+  const [nombre_evento, setNombre_evento] = useState('')
+  const [asistencia, setAsistencia] = useState('')
+  const [numero_asistencia, setNumero_asitencia] =useState('')
+  
 
 
     const guardabase = async () => {
-        const res = await axios.post('/basedatos/insertarEncuestaprincipal', {edad, eventos_donde });
+        const res = await axios.post('/basedatos/insertarEncuestatipo', {nombre_evento, asistencia, numero_asistencia});
         console.log(res.data)
-        setEdad('')
-        setEventos_donde('')
+        setNombre('')
+        setAsistencia('')
+        setNumero_asitencia('')
 
       }
     const  consultabase = async () => {
@@ -59,15 +61,22 @@ export const Registro2 = () => {
       }
 
       //Onchange agregado para edad
-      const onchangeEdad = (e) => {
-        setEdad(e.currentTarget.value);
-        console.log(edad)
-      }
+      
 
-      //Onchange agregado para eventos_donde
-      const onchangeEventos_donde = (e) => {
-        setEventos_donde(e.currentTarget.value);
-        console.log(eventos_donde)
+      //Onchange agregado para nombre_evento
+      const onchangeNombre_evento = (e) => {
+        setNombre_evento(e.currentTarget.value);
+        console.log(nombre_evento)
+      }
+      //Onchange agregado para asistencia
+      const onchangeAsistencia = (e) => {
+        setAsistencia(e.currentTarget.value);
+        console.log(asistencia)
+      }
+      //Onchange agregado para Numero_asistencia
+      const onchangeNumero_asitencia = (e) => {
+        setNumero_asitencia(e.currentTarget.value);
+        console.log(numero_asistencia)
       }
 
     const inserta = () => {
@@ -100,29 +109,41 @@ export const Registro2 = () => {
             
     return (
         <div  className="formdb__box-containter">
-            <h3 className="auth__title">ESTA ES DIFERENTE</h3>
+            <h3 className="auth__title">CULTURAL</h3>
             <Form>
 
               <br />
-              <p>La edad seleccionada es: <b>{edad}</b></p>
+              
 
               <FormGroup>
-                <Label for="CheckboxEdad">¿En qué rango de edad se encuentra?</Label>
+                <Label for="CheckboxNombre_evento">¿Qué evento cultural te gusta más?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioEdad1" label="18 - 25" value="18 - 25" checked={esSeleccionado(edad, "18 - 25")} onChange={onchangeEdad} />
-                  <CustomInput type="radio" id="radioEdad2" label="26 - 35" value="26 - 35" checked={esSeleccionado(edad, "26 - 35")} onChange={onchangeEdad} />
-                  <CustomInput type="radio" id="radioEdad3" label="36 - 45" value="36 - 45" checked={esSeleccionado(edad, "36 - 45")} onChange={onchangeEdad} />
-                  <CustomInput type="radio" id="radioEdad4" label="46 - más" value="46 - más" checked={esSeleccionado(edad, "46 - más")} onChange={onchangeEdad} />
+                  <CustomInput type="radio" id="radioNombre_evento1" label="concierto" value="concierto" checked={esSeleccionado(nombre_evento, "concierto")} onChange={onchangeNombre_evento} />
+                  <CustomInput type="radio" id="radioNombre_evento2" label="teatro" value="teatro" checked={esSeleccionado(nombre_evento, "teatro")} onChange={onchangeNombre_evento} />
+                  <CustomInput type="radio" id="radioNombre_evento3" label="peliculas" value="peliculas" checked={esSeleccionado(nombre_evento, "peliculas")} onChange={onchangeNombre_evento} />
+                  <CustomInput type="radio" id="radioNombre_evento4" label="danza" value="danza" checked={esSeleccionado(nombre_evento, "danza")} onChange={onchangeNombre_evento} />
                 </div>
               </FormGroup>
 
               <FormGroup>
-                <Label for="CheckboxEventosdonde">¿Cómo te gustan que sean los eventos?</Label>
+                <Label for="CheckboxAsistencia">¿Ha asistido o asiste a eventos de este tipo?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioEventodonde1" label="Al aire libre" value="aire libre" checked={esSeleccionado(eventos_donde, "aire libre")} onChange={onchangeEventos_donde} />
-                  <CustomInput type="radio" id="radioEventodonde2" label="En sitios cerrados" value="sitio cerrado" checked={esSeleccionado(eventos_donde, "sitio cerrado")} onChange={onchangeEventos_donde} />
+                  <CustomInput type="radio" id="radioAsistencia1" label="Si" value={true} checked={esSeleccionado(asistencia, "true")} onChange={onchangeAsistencia} />
+                  <CustomInput type="radio" id="radioAsistencia2" label="No" value={false} checked={esSeleccionado(asistencia, "false")} onChange={onchangeAsistencia} />
+                  
                 </div>
               </FormGroup>
+              
+              <FormGroup>
+                <Label for="CheckboxNumero_asistencia">¿A cuantos eventos de este tipo has ido en el último año?</Label>
+                <div>
+                  <CustomInput type="radio" id="radioNumero_asistencia1" label="0 a 2 veces" value="0 a 2 veces" checked={esSeleccionado(numero_asistencia, "0 a 2 veces")} onChange={onchangeNumero_asitencia} />
+                  <CustomInput type="radio" id="radioNumero_asistencia2" label="3 a 5 veces" value="3 a 5 veces" checked={esSeleccionado(numero_asistencia, "3 a 5 veces")} onChange={onchangeNumero_asitencia} />
+                  <CustomInput type="radio" id="radioNumero_asistencia3" label="6 a mas veces" value="6 a mas veces" checked={esSeleccionado(numero_asistencia, "6 a mas veces")} onChange={onchangeNumero_asitencia} />
+                </div>
+              </FormGroup>
+
+              
 
 
 

@@ -220,21 +220,21 @@ export const Registroinfo = () => {
               <FormGroup>
                 <Label for="CheckboxInt_cultura">¿Te gustan los eventos culturales?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioInt_cultura1" label="1" value="1"checked={esSeleccionado(int_cultura, "1")} onChange={onchangeInt_cultura}/>
-                  <CustomInput type="radio" id="radioInt_cultura2" label="2" value="2"checked={esSeleccionado(int_cultura, "2")} onChange={onchangeInt_cultura}/>
-                  <CustomInput type="radio" id="radioInt_cultura3" label="3" value="3"checked={esSeleccionado(int_cultura, "3")} onChange={onchangeInt_cultura}/>
-                  <CustomInput type="radio" id="radioInt_cultura4" label="4" value="4"checked={esSeleccionado(int_cultura, "4")} onChange={onchangeInt_cultura}/>
-                  <CustomInput type="radio" id="radioInt_cultura5" label="5" value="5"checked={esSeleccionado(int_cultura, "5")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura1" label={1} value={1}checked={esSeleccionado(int_cultura, "1")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura2" label={2} value={2}checked={esSeleccionado(int_cultura, "2")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura3" label={3} value={3}checked={esSeleccionado(int_cultura, "3")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura4" label={4} value={4}checked={esSeleccionado(int_cultura, "4")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura5" label={5} value={5}checked={esSeleccionado(int_cultura, "5")} onChange={onchangeInt_cultura}/>
                 </div>
               </FormGroup>
               <FormGroup>
                 <Label for="CheckboxInt_deporte">¿Te gustan los eventos deportivos?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioInt_deporte1" label="1" value="1"checked={esSeleccionado(int_deporte, "1")} onChange={onchangeInt_deporte}/>
-                  <CustomInput type="radio" id="radioInt_deporte2" label="2" value="2"checked={esSeleccionado(int_deporte, "2")} onChange={onchangeInt_deporte}/>
-                  <CustomInput type="radio" id="radioInt_deporte3" label="3" value="3"checked={esSeleccionado(int_deporte, "3")} onChange={onchangeInt_deporte}/>
-                  <CustomInput type="radio" id="radioInt_deporte4" label="4" value="4"checked={esSeleccionado(int_deporte, "4")} onChange={onchangeInt_deporte}/>
-                  <CustomInput type="radio" id="radioInt_deporte5" label="5" value="5"checked={esSeleccionado(int_deporte, "5")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte1" label="1" value={1}checked={esSeleccionado(int_deporte, "1")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte2" label="2" value={2}checked={esSeleccionado(int_deporte, "2")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte3" label="3" value={3}checked={esSeleccionado(int_deporte, "3")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte4" label="4" value={4}checked={esSeleccionado(int_deporte, "4")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte5" label="5" value={5}checked={esSeleccionado(int_deporte, "5")} onChange={onchangeInt_deporte}/>
                 </div>
               </FormGroup>
 
