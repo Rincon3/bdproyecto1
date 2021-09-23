@@ -149,7 +149,6 @@ export const Registroinfo = () => {
     return (
         <div  className="formdb__box-containter">
             <h3 className="auth__title">Envio INFO</h3>
-            <Form>
 
               <br />
               <p>La edad seleccionada es: <b>{edad}</b></p>
@@ -306,7 +305,6 @@ export const Registroinfo = () => {
                 > 
                 actualizar
                 </button>
-            </Form>
         </div>
     )
 }
