@@ -1,26 +1,22 @@
 import React from 'react';
-import { BrowserRouter} from 'react-router-dom';
-import { Registroinfo } from './Registroinfo';
 import ReactDOM from 'react-dom';
-import {Formdb} from './Formdb'
-import './styles/styles.scss'
+//import {Formdb} from './Formdb';
+import './styles/styles.scss';
+import App from './components/App';
 
 //Boostrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Router } from 'express';
 
+ReactDOM.render(
+    <App />,
+  document.getElementById('root')
+);
+
+/*
 ReactDOM.render(
     <Formdb />,
   document.getElementById('root')
 );
+*/
 
-/*function Index(){
-  return (
-    <BrowserRouter>
-      <Route path="/registroInfo" component={Registroinfo} />
-    </BrowserRouter>
-  )
-}
-
-export default Index*/
 

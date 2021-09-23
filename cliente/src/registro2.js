@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
 
-export const Registroinfo = () => {
+export const Registro2 = () => {
 
   const [documento, setDocumento] = useState('')
   const [nombre, setNombre] = useState('')

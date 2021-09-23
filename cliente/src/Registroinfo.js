@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
 
 export const Registroinfo = () => {
@@ -12,14 +12,11 @@ export const Registroinfo = () => {
   const [edad, setEdad] = useState('')
   const [eventos_donde, setEventos_donde] = useState('')
 
-
-
     const guardabase = async () => {
         const res = await axios.post('/basedatos/insertarEncuestaprincipal', {edad, eventos_donde });
         console.log(res.data)
         setEdad('')
         setEventos_donde('')
-
       }
     const  consultabase = async () => {
         const res = await axios.get('/basedatos/consultatotalpacientes');
@@ -40,8 +37,6 @@ export const Registroinfo = () => {
         console.log('data api',res.data)
         return res
       }
-
-      
     
       const onChangedc = (e) => {
         setDocumento(e.currentTarget.value);
@@ -157,14 +152,14 @@ export const Registroinfo = () => {
                 />
 
                 
-                
+                <Link to="/Formdb2" > 
                 <button
                 className="btn btn-primary" 
                 type="button"
-                onClick={()=>inserta()}
-                > 
-                enviar info
+                onClick={()=>inserta()}>
+                  enviar info
                 </button>
+                </Link>
 
                 <button
                 className="btn btn-primary" 
