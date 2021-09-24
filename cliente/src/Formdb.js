@@ -1,11 +1,11 @@
 import React from 'react'
-import {Registroinfo} from './Registroinfo'
 import {Registro2} from './registro2'
+import { Principal } from './Principal'
 
 export const Formdb = () => {
     return (
         <div className="formdb__main">
-            <Registroinfo/>
+            <Principal/>
         </div>
     )
 }

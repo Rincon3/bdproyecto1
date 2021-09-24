@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
+import { CustomInput, FormGroup, Label } from 'reactstrap';
 
-export const Registroinfo = () => {
+export const Principal = () => {
 
   const [documento, setDocumento] = useState('')
   const [nombre, setNombre] = useState('')
@@ -22,7 +22,7 @@ export const Registroinfo = () => {
 
 
     const guardabase = async () => {
-        const res = await axios.post('/basedatos/insertarEncuestaprincipal', {edad, eventos_donde, lugares_eventos, dia, tipo, transporte, promo, int_cultura,int_deporte});
+        const res = await axios.post('/basedatos/insertarEncuestaprincipal', {edad, eventos_donde, lugares_eventos, dia, tipo, transporte, promo, int_cultura, int_deporte});
         console.log(res.data)
         setEdad('')
         setEventos_donde('')
@@ -220,27 +220,23 @@ export const Registroinfo = () => {
               <FormGroup>
                 <Label for="CheckboxInt_cultura">¿Te gustan los eventos culturales?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioInt_cultura1" label="1" value="1"checked={esSeleccionado(int_cultura, "1")} onChange={onchangeInt_cultura}/>
-                  <CustomInput type="radio" id="radioInt_cultura2" label="2" value="2"checked={esSeleccionado(int_cultura, "2")} onChange={onchangeInt_cultura}/>
-                  <CustomInput type="radio" id="radioInt_cultura3" label="3" value="3"checked={esSeleccionado(int_cultura, "3")} onChange={onchangeInt_cultura}/>
-                  <CustomInput type="radio" id="radioInt_cultura4" label="4" value="4"checked={esSeleccionado(int_cultura, "4")} onChange={onchangeInt_cultura}/>
-                  <CustomInput type="radio" id="radioInt_cultura5" label="5" value="5"checked={esSeleccionado(int_cultura, "5")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura1" label="1" value={1} checked={esSeleccionado(int_cultura, "1")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura2" label="2" value={2} checked={esSeleccionado(int_cultura, "2")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura3" label="3" value={3} checked={esSeleccionado(int_cultura, "3")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura4" label="4" value={4} checked={esSeleccionado(int_cultura, "4")} onChange={onchangeInt_cultura}/>
+                  <CustomInput type="radio" id="radioInt_cultura5" label="5" value={5} checked={esSeleccionado(int_cultura, "5")} onChange={onchangeInt_cultura}/>
                 </div>
               </FormGroup>
               <FormGroup>
                 <Label for="CheckboxInt_deporte">¿Te gustan los eventos deportivos?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioInt_deporte1" label="1" value="1"checked={esSeleccionado(int_deporte, "1")} onChange={onchangeInt_deporte}/>
-                  <CustomInput type="radio" id="radioInt_deporte2" label="2" value="2"checked={esSeleccionado(int_deporte, "2")} onChange={onchangeInt_deporte}/>
-                  <CustomInput type="radio" id="radioInt_deporte3" label="3" value="3"checked={esSeleccionado(int_deporte, "3")} onChange={onchangeInt_deporte}/>
-                  <CustomInput type="radio" id="radioInt_deporte4" label="4" value="4"checked={esSeleccionado(int_deporte, "4")} onChange={onchangeInt_deporte}/>
-                  <CustomInput type="radio" id="radioInt_deporte5" label="5" value="5"checked={esSeleccionado(int_deporte, "5")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte1" label="1" value={1} checked={esSeleccionado(int_deporte, "1")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte2" label="2" value={2} checked={esSeleccionado(int_deporte, "2")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte3" label="3" value={3} checked={esSeleccionado(int_deporte, "3")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte4" label="4" value={4} checked={esSeleccionado(int_deporte, "4")} onChange={onchangeInt_deporte}/>
+                  <CustomInput type="radio" id="radioInt_deporte5" label="5" value={5} checked={esSeleccionado(int_deporte, "5")} onChange={onchangeInt_deporte}/>
                 </div>
               </FormGroup>
-
-
-
-
 
               <input 
                 className="auth__input"
@@ -251,7 +247,6 @@ export const Registroinfo = () => {
                 autoComplete="off"
                 onChange={onChangedc}
               />
-            
 
             <input 
                 className="auth__input"
@@ -271,8 +266,7 @@ export const Registroinfo = () => {
                 onChange={onChangeap}
                 autoComplete="off"
                 />
-
-                
+ 
                 <Link to="/Formdb2" > 
                 <button
                 className="btn btn-primary" 
