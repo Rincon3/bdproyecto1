@@ -1,19 +1,28 @@
 import React from 'react'
-import {Registroinfo} from './Registroinfo'
-import {Registro2} from './registro2'
+import {Cultural} from './Cultural'
+import { Principal } from './Principal'
+import { Deportes } from './Deportes'
 
-export const Formdb = () => {
+export const FormPrincipal = () => {
     return (
         <div className="formdb__main">
-            <Registroinfo/>
+            <Principal/>
         </div>
     )
 }
 
-export const Formdb2 = () => {
+export const FormCultural = () => {
     return (
         <div className="formdb__main">
-            <Registro2/>
+            <Cultural/>
+        </div>
+    )
+}
+
+export const FormDeportes = () => {
+    return (
+        <div className="formdb__main">
+            <Deportes/>
         </div>
     )
 }

@@ -25,7 +25,35 @@ router.get('/consultatotalpacientes', async (req, res) => {
 router.post('/insertarEncuestaprincipal', async (req, res) => {
   const { edad, eventos_donde, lugares_eventos, dia, tipo, transporte, promo, int_cultura, int_deporte} = req.body;
   await client.query(
-    `INSERT INTO principal(edad, eventos_donde, lugares_eventos, dia, tipo, transporte, promo, int_cultura, int_deporte) VALUES('${edad}','${eventos_donde}', '${lugares_eventos}','${dia}','${tipo},'${transporte}','${promo}','${int_cultura}','${int_deporte}' )`
+    `INSERT INTO principal(edad, eventos_donde, lugares_eventos, dia, tipo, transporte, promo, int_cultura, int_deporte) VALUES('${edad}','${eventos_donde}', '${lugares_eventos}','${dia}','${tipo}','${transporte}','${promo}','${int_cultura}','${int_deporte}' )`
+  );
+  res.send('INSERTADO');
+});
+
+router.post('/insertarEncuestatipo', async (req, res) => {
+  const { nombre_evento, asistencia, numero_asistencia, participacion, pago, medio_pago,
+  duracion, localidad, cantidad_pago} = req.body;
+  await client.query(
+    `insert into tipo(id_usuario, 
+      nombre_evento, 
+      asistencia, 
+      numero_asistencia, 
+      participacion,
+      pago,
+      medio_pago,
+      duracion,
+      localidad, 
+      cantidad_pago)
+ values ((select max(id_usuario) from principal),
+     '${nombre_evento}',
+     '${asistencia}',
+     '${numero_asistencia}',
+     '${participacion}',
+     '${pago}',
+     '${medio_pago}',
+     '${duracion}',
+     '${localidad}',
+     '${cantidad_pago}',)`
   );
   res.send('INSERTADO');
 });
