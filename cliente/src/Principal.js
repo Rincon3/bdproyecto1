@@ -18,6 +18,9 @@ export const Principal = () => {
   const [promo, setPromo] = useState('')
   const [int_cultura, setInt_cultura] = useState('')
   const [int_deporte, setInt_deporte] = useState('')
+
+  const buttonCultura = document.querySelector(".btnCultura");
+  const buttonDeporte = document.querySelector(".btnDeporte");
   
 
 
@@ -120,12 +123,15 @@ export const Principal = () => {
 
     const inserta = () => {
         console.log('Se hizo click');
+         validacionTipo()
          guardabase()
       }
 
     const consulta = () => {
         console.log('Se hizo click consulta');
-        consultabase() 
+        consultabase()
+        validacionTipo()
+        
     }
 
       const actualiza = () => {
@@ -145,10 +151,26 @@ export const Principal = () => {
           return false;
         }
       }
+
+      const validacionTipo = () => {
+        if(int_cultura>int_deporte){
+          buttonCultura.disabled = false;
+          buttonDeporte.disabled = true;
+        }else if(int_deporte>int_cultura){
+          buttonDeporte.disabled = false;
+          buttonCultura.disabled = true; 
+        }else if(int_deporte===int_cultura && tipo==='culturales'){
+          buttonCultura.disabled = false;
+          buttonDeporte.disabled = true;
+        }else{
+          buttonDeporte.disabled = false;
+          buttonCultura.disabled = true;
+        }
+      }
             
     return (
         <div  className="formdb__box-containter">
-            <h3 className="auth__title">Envio INFO</h3>
+            <h3 className="auth__title">PRINCIPAL</h3>
 
               <br />
               <p>La edad seleccionada es: <b>{edad}</b></p>
@@ -220,77 +242,52 @@ export const Principal = () => {
               <FormGroup>
                 <Label for="CheckboxInt_cultura">¿Te gustan los eventos culturales?</Label>
                 <div>
-<<<<<<< HEAD:cliente/src/Principal.js
-                  <CustomInput type="radio" id="radioInt_cultura1" label="1" value={1} checked={esSeleccionado(int_cultura, "1")} onChange={onchangeInt_cultura}/>
-                  <CustomInput type="radio" id="radioInt_cultura2" label="2" value={2} checked={esSeleccionado(int_cultura, "2")} onChange={onchangeInt_cultura}/>
-                  <CustomInput type="radio" id="radioInt_cultura3" label="3" value={3} checked={esSeleccionado(int_cultura, "3")} onChange={onchangeInt_cultura}/>
-                  <CustomInput type="radio" id="radioInt_cultura4" label="4" value={4} checked={esSeleccionado(int_cultura, "4")} onChange={onchangeInt_cultura}/>
-                  <CustomInput type="radio" id="radioInt_cultura5" label="5" value={5} checked={esSeleccionado(int_cultura, "5")} onChange={onchangeInt_cultura}/>
-=======
                   <CustomInput type="radio" id="radioInt_cultura1" label={1} value={1}checked={esSeleccionado(int_cultura, "1")} onChange={onchangeInt_cultura}/>
                   <CustomInput type="radio" id="radioInt_cultura2" label={2} value={2}checked={esSeleccionado(int_cultura, "2")} onChange={onchangeInt_cultura}/>
                   <CustomInput type="radio" id="radioInt_cultura3" label={3} value={3}checked={esSeleccionado(int_cultura, "3")} onChange={onchangeInt_cultura}/>
                   <CustomInput type="radio" id="radioInt_cultura4" label={4} value={4}checked={esSeleccionado(int_cultura, "4")} onChange={onchangeInt_cultura}/>
                   <CustomInput type="radio" id="radioInt_cultura5" label={5} value={5}checked={esSeleccionado(int_cultura, "5")} onChange={onchangeInt_cultura}/>
->>>>>>> 9c922f18c8247441e7ec8cca048b5f414a516cdf:cliente/src/Registroinfo.js
                 </div>
               </FormGroup>
               <FormGroup>
                 <Label for="CheckboxInt_deporte">¿Te gustan los eventos deportivos?</Label>
                 <div>
-<<<<<<< HEAD:cliente/src/Principal.js
-                  <CustomInput type="radio" id="radioInt_deporte1" label="1" value={1} checked={esSeleccionado(int_deporte, "1")} onChange={onchangeInt_deporte}/>
-                  <CustomInput type="radio" id="radioInt_deporte2" label="2" value={2} checked={esSeleccionado(int_deporte, "2")} onChange={onchangeInt_deporte}/>
-                  <CustomInput type="radio" id="radioInt_deporte3" label="3" value={3} checked={esSeleccionado(int_deporte, "3")} onChange={onchangeInt_deporte}/>
-                  <CustomInput type="radio" id="radioInt_deporte4" label="4" value={4} checked={esSeleccionado(int_deporte, "4")} onChange={onchangeInt_deporte}/>
-                  <CustomInput type="radio" id="radioInt_deporte5" label="5" value={5} checked={esSeleccionado(int_deporte, "5")} onChange={onchangeInt_deporte}/>
-=======
                   <CustomInput type="radio" id="radioInt_deporte1" label="1" value={1}checked={esSeleccionado(int_deporte, "1")} onChange={onchangeInt_deporte}/>
                   <CustomInput type="radio" id="radioInt_deporte2" label="2" value={2}checked={esSeleccionado(int_deporte, "2")} onChange={onchangeInt_deporte}/>
                   <CustomInput type="radio" id="radioInt_deporte3" label="3" value={3}checked={esSeleccionado(int_deporte, "3")} onChange={onchangeInt_deporte}/>
                   <CustomInput type="radio" id="radioInt_deporte4" label="4" value={4}checked={esSeleccionado(int_deporte, "4")} onChange={onchangeInt_deporte}/>
                   <CustomInput type="radio" id="radioInt_deporte5" label="5" value={5}checked={esSeleccionado(int_deporte, "5")} onChange={onchangeInt_deporte}/>
->>>>>>> 9c922f18c8247441e7ec8cca048b5f414a516cdf:cliente/src/Registroinfo.js
                 </div>
               </FormGroup>
 
-              <input 
-                className="auth__input"
-                type="text"
-                placeholder="documento"
-                name="documento"
-                value={documento}
-                autoComplete="off"
-                onChange={onChangedc}
-              />
-
-            <input 
-                className="auth__input"
-                type="text"
-                placeholder="nombre"
-                name="nombre"
-                value={nombre}
-                autoComplete="off"
-                onChange={onChangenm}
-                />
-               <input 
-                className="auth__input"
-                type="text"
-                placeholder="apellido"
-                name="apellido"
-                value={apellido}
-                onChange={onChangeap}
-                autoComplete="off"
-                />
  
-                <Link to="/Formdb2" > 
                 <button
                 className="btn btn-primary" 
                 type="button"
                 onClick={()=>inserta()}>
                   enviar info
                 </button>
+
+                <Link to="FormCultural">
+                <button
+                class="btnCultura btn btn-primary" 
+                disabled
+                type="button">
+                  Siguiente sección Cultura
+                </button>
                 </Link>
+
+                <Link to="/FormDeportes" >
+                <button
+                class="btnDeporte btn btn-primary" 
+                disabled
+                type="button">
+                  Siguiente sección Deporte
+                </button>
+                </Link>
+
+
+                
 
                 <button
                 className="btn btn-primary" 

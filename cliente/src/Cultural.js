@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
 
-export const Registro2 = () => {
+export const Cultural = () => {
 
   const [documento, setDocumento] = useState('')
   const [nombre, setNombre] = useState('')
@@ -59,10 +59,7 @@ export const Registro2 = () => {
         setApellido(e.currentTarget.value)
         
       }
-
-      //Onchange agregado para edad
       
-
       //Onchange agregado para nombre_evento
       const onchangeNombre_evento = (e) => {
         setNombre_evento(e.currentTarget.value);
@@ -111,8 +108,6 @@ export const Registro2 = () => {
         <div  className="formdb__box-containter">
             <h3 className="auth__title">CULTURAL</h3>
             <Form>
-
-              <br />
               
 
               <FormGroup>
@@ -142,41 +137,6 @@ export const Registro2 = () => {
                   <CustomInput type="radio" id="radioNumero_asistencia3" label="6 a mas veces" value="6 a mas veces" checked={esSeleccionado(numero_asistencia, "6 a mas veces")} onChange={onchangeNumero_asitencia} />
                 </div>
               </FormGroup>
-
-              
-
-
-
-              <input 
-                className="auth__input"
-                type="text"
-                placeholder="documento"
-                name="documento"
-                value={documento}
-                autoComplete="off"
-                onChange={onChangedc}
-              />
-            
-
-            <input 
-                className="auth__input"
-                type="text"
-                placeholder="nombre"
-                name="nombre"
-                value={nombre}
-                autoComplete="off"
-                onChange={onChangenm}
-                />
-               <input 
-                className="auth__input"
-                type="text"
-                placeholder="apellido"
-                name="apellido"
-                value={apellido}
-                onChange={onChangeap}
-                autoComplete="off"
-                />
-
                 
                 
                 <button
