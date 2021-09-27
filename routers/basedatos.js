@@ -34,7 +34,7 @@ router.post('/insertarEncuestatipo', async (req, res) => {
   const { nombre_evento, asistencia, numero_asistencia, participacion, pago, medio_pago,
   duracion, localidad, cantidad_pago} = req.body;
   await client.query(
-    `insert into tipo(id_usuario, 
+    `INSERT INTO tipo(id_usuario, 
       nombre_evento, 
       asistencia, 
       numero_asistencia, 
@@ -44,7 +44,7 @@ router.post('/insertarEncuestatipo', async (req, res) => {
       duracion,
       localidad, 
       cantidad_pago)
- values ((select max(id_usuario) from principal),
+        VALUES ((SELECT max(id_usuario) FROM principal),
      '${nombre_evento}',
      '${asistencia}',
      '${numero_asistencia}',
@@ -53,7 +53,7 @@ router.post('/insertarEncuestatipo', async (req, res) => {
      '${medio_pago}',
      '${duracion}',
      '${localidad}',
-     '${cantidad_pago}',)`
+     '${cantidad_pago}')`
   );
   res.send('INSERTADO');
 });

@@ -82,7 +82,7 @@ export const Deportes = () => {
         console.log(asistencia)
       }
       //Onchange agregado para Numero_asistencia
-      const onchangeNumero_asitencia = (e) => {
+      const onchangeNumero_asistencia = (e) => {
         setNumero_asistencia(e.currentTarget.value);
         console.log(numero_asistencia)
       }
@@ -172,9 +172,9 @@ export const Deportes = () => {
               <FormGroup>
                 <Label for="CheckboxNumero_asistencia">¿A cuantos eventos de deporte has ido en el último año?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioNumero_asistencia1" label="0 a 2 veces" value="0 a 2 veces" checked={esSeleccionado(numero_asistencia, "0 a 2 veces")} onChange={onchangeNumero_asitencia} />
-                  <CustomInput type="radio" id="radioNumero_asistencia2" label="3 a 5 veces" value="3 a 5 veces" checked={esSeleccionado(numero_asistencia, "3 a 5 veces")} onChange={onchangeNumero_asitencia} />
-                  <CustomInput type="radio" id="radioNumero_asistencia3" label="6 a mas veces" value="6 a mas veces" checked={esSeleccionado(numero_asistencia, "6 a mas veces")} onChange={onchangeNumero_asitencia} />
+                  <CustomInput type="radio" id="radioNumero_asistencia1" label="0 a 2 veces" value="0 a 2 veces" checked={esSeleccionado(numero_asistencia, "0 a 2 veces")} onChange={onchangeNumero_asistencia} />
+                  <CustomInput type="radio" id="radioNumero_asistencia2" label="3 a 5 veces" value="3 a 5 veces" checked={esSeleccionado(numero_asistencia, "3 a 5 veces")} onChange={onchangeNumero_asistencia} />
+                  <CustomInput type="radio" id="radioNumero_asistencia3" label="6 a mas veces" value="6 a mas veces" checked={esSeleccionado(numero_asistencia, "6 a mas veces")} onChange={onchangeNumero_asistencia} />
                 </div>
               </FormGroup>
 
@@ -197,8 +197,8 @@ export const Deportes = () => {
               <FormGroup>
                 <Label for="CheckboxMedio_pago">¿Por cuál medio de pago te gustaría pagar el ticket?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioMedio_pago1" label="Efectivo en punto de venta" value="efectivo" checked={esSeleccionado(pago, "tEfectivo en punto de venta")} onChange={onchangeMedio_pago} />
-                  <CustomInput type="radio" id="radioMedio_pago2" label="Online" value="online" checked={esSeleccionado(pago, "Online")} onChange={onchangeMedio_pago} />
+                  <CustomInput type="radio" id="radioMedio_pago1" label="Efectivo en punto de venta" value="efectivo" checked={esSeleccionado(medio_pago, "efectivo")} onChange={onchangeMedio_pago} />
+                  <CustomInput type="radio" id="radioMedio_pago2" label="Online" value="online" checked={esSeleccionado(medio_pago, "online")} onChange={onchangeMedio_pago} />
                 </div>
               </FormGroup>
 
@@ -206,16 +206,16 @@ export const Deportes = () => {
                 <Label for="CheckboxDuracion">¿A cuantos eventos de deporte has ido en el último año?</Label>
                 <div>
                   <CustomInput type="radio" id="radioDuracion1" label="1 a 2 horas" value="1 a 2 horas" checked={esSeleccionado(duracion, "1 a 2 horas")} onChange={onchangeDuracion} />
-                  <CustomInput type="radio" id="radioDuracion2" label="3 a 4 horas" value="3 a 4 horas" checked={esSeleccionado(duracion, "3 a 4 veces")} onChange={onchangeDuracion} />
-                  <CustomInput type="radio" id="radioDuracion3" label="5 o más horas" value="5 o más horas" checked={esSeleccionado(duracion, "5 o más veces")} onChange={onchangeDuracion} />
+                  <CustomInput type="radio" id="radioDuracion2" label="3 a 4 horas" value="3 a 4 horas" checked={esSeleccionado(duracion, "3 a 4 horas")} onChange={onchangeDuracion} />
+                  <CustomInput type="radio" id="radioDuracion3" label="5 horas o más" value="5 horas o más" checked={esSeleccionado(duracion, "5 horas o más")} onChange={onchangeDuracion} />
                 </div>
               </FormGroup>
 
               <FormGroup>
                 <Label for="CheckboxLocalidad">¿Te gustaría que este evento deportivo se lleve a cabo en tu localidad?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioLocalidad1" label="Si" value={true} checked={esSeleccionado(pago, "true")} onChange={onchangeLocalidad} />
-                  <CustomInput type="radio" id="radioLocalidad2" label="No" value={false} checked={esSeleccionado(pago, "false")} onChange={onchangeLocalidad} />
+                  <CustomInput type="radio" id="radioLocalidad1" label="Si" value={true} checked={esSeleccionado(localidad, "true")} onChange={onchangeLocalidad} />
+                  <CustomInput type="radio" id="radioLocalidad2" label="No" value={false} checked={esSeleccionado(localidad, "false")} onChange={onchangeLocalidad} />
                 </div>
               </FormGroup>
 
