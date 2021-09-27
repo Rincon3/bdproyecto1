@@ -19,6 +19,10 @@ export const Deportes = () => {
   const [localidad, setLocalidad] = useState('')
   const [cantidad_pago, setCantidad_pago] = useState('')
 
+  const buttonFutbol = document.querySelector(".btnFutbol");
+  const buttonCiclismo = document.querySelector(".btnCiclismo");
+  const buttonLucha = document.querySelector(".btnLucha");
+  const buttonAutomovilismo = document.querySelector(".btnAutomovilismo");
 
 
     const guardabase = async () => {
@@ -126,6 +130,7 @@ export const Deportes = () => {
     const consulta = () => {
         console.log('Se hizo click consulta');
         consultabase()
+        validacionEvento()
     }
 
       const actualiza = () => {
@@ -143,6 +148,30 @@ export const Deportes = () => {
           return true;
         }else{
           return false;
+        }
+      }
+
+      const validacionEvento = () => {
+        if(nombre_evento=='futbol'){
+          buttonFutbol.disabled = false
+          buttonCiclismo.disabled = true
+          buttonLucha.disabled = true
+          buttonAutomovilismo.disabled = true
+        }else if(nombre_evento=='ciclismo'){
+          buttonCiclismo.disabled = false
+          buttonFutbol.disabled = true
+          buttonLucha.disabled = true
+          buttonAutomovilismo.disabled = true
+        }else if(nombre_evento=='lucha libre'){
+          buttonLucha.disabled = false
+          buttonFutbol.disabled = true
+          buttonCiclismo.disabled = true
+          buttonAutomovilismo.disabled = true
+        }else{
+          buttonAutomovilismo.disabled = false
+          buttonFutbol.disabled = true
+          buttonCiclismo.disabled = true
+          buttonLucha.disabled = true
         }
       }
             
@@ -203,7 +232,7 @@ export const Deportes = () => {
               </FormGroup>
 
               <FormGroup>
-                <Label for="CheckboxDuracion">¿A cuantos eventos de deporte has ido en el último año?</Label>
+                <Label for="CheckboxDuracion">¿Cuánto te gustaría que durara el evento deportivo?</Label>
                 <div>
                   <CustomInput type="radio" id="radioDuracion1" label="1 a 2 horas" value="1 a 2 horas" checked={esSeleccionado(duracion, "1 a 2 horas")} onChange={onchangeDuracion} />
                   <CustomInput type="radio" id="radioDuracion2" label="3 a 4 horas" value="3 a 4 horas" checked={esSeleccionado(duracion, "3 a 4 horas")} onChange={onchangeDuracion} />
@@ -235,6 +264,42 @@ export const Deportes = () => {
                 onClick={()=>inserta()}>
                   enviar info
                 </button>
+
+                <Link to="FormFutbol">
+                <button
+                class="btnFutbol btn btn-primary" 
+                disabled
+                type="button">
+                  Siguiente sección Futbol
+                </button>
+                </Link>
+
+                <Link to="/FormCiclismo" >
+                <button
+                class="btnCiclismo btn btn-primary" 
+                disabled
+                type="button">
+                  Siguiente sección Ciclismo
+                </button>
+                </Link>
+
+                <Link to="/FormLucha" >
+                <button
+                class="btnLucha btn btn-primary" 
+                disabled
+                type="button">
+                  Siguiente sección Lucha libre
+                </button>
+                </Link>
+
+                <Link to="/FormAutomovilismo" >
+                <button
+                class="btnAutomovilismo btn btn-primary" 
+                disabled
+                type="button">
+                  Siguiente sección Automovilismo
+                </button>
+                </Link>
 
                 <button
                 className="btn btn-primary" 

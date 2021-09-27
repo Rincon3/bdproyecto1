@@ -58,6 +58,23 @@ router.post('/insertarEncuestatipo', async (req, res) => {
   res.send('INSERTADO');
 });
 
+router.post('/insertarEncuestaDeportes', async (req, res) => {
+  const { tipo_deporte} = req.body;
+  await client.query(
+    `INSERT INTO deporte(id_usuario, tipo_deporte) VALUES((SELECT max(id_usuario) FROM principal),'${tipo_deporte}')`
+  );
+  res.send('INSERTADO');
+});
+
+router.post('/insertarEncuestaFutbol', async (req, res) => {
+  const { equipo } = req.body;
+  await client.query(
+    `INSERT INTO futbol(id_usuario, id_deporte, equipo) VALUES((SELECT max(id_usuario) FROM principal), (SELECT max(id_deporte) FROM deporte), '${equipo}')`
+  );
+  res.send('INSERTADO');
+});
+
+
 router.delete('/eliminarpacientes', async (req, res) => {
   const { numid } = req.body;
   await client.query(
