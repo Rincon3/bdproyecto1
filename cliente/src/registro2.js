@@ -100,27 +100,27 @@ export const Registro2 = () => {
             
     return (
         <div  className="formdb__box-containter">
-            <h3 className="auth__title">ESTA ES DIFERENTE</h3>
+            <h3 className="auth__title">FORMULARIO PRINCIPAL</h3>
             <Form>
 
               <br />
-              <p>La edad seleccionada es: <b>{edad}</b></p>
+              <p>CULTURA <b>{edad}</b></p>
 
               <FormGroup>
-                <Label for="CheckboxEdad">¿En qué rango de edad se encuentra?</Label>
+                <Label for="CheckboxEdad">¿Qué evento cultural te gusta más?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioEdad1" label="18 - 25" value="18 - 25" checked={esSeleccionado(edad, "18 - 25")} onChange={onchangeEdad} />
-                  <CustomInput type="radio" id="radioEdad2" label="26 - 35" value="26 - 35" checked={esSeleccionado(edad, "26 - 35")} onChange={onchangeEdad} />
-                  <CustomInput type="radio" id="radioEdad3" label="36 - 45" value="36 - 45" checked={esSeleccionado(edad, "36 - 45")} onChange={onchangeEdad} />
-                  <CustomInput type="radio" id="radioEdad4" label="46 - más" value="46 - más" checked={esSeleccionado(edad, "46 - más")} onChange={onchangeEdad} />
+                  <CustomInput type="radio" id="radioEdad1" label="Concierto" value="18 - 25" checked={esSeleccionado(edad, "18 - 25")} onChange={onchangeEdad} />
+                  <CustomInput type="radio" id="radioEdad2" label="Teatro" value="26 - 35" checked={esSeleccionado(edad, "26 - 35")} onChange={onchangeEdad} />
+                  <CustomInput type="radio" id="radioEdad3" label="Peliculas" value="36 - 45" checked={esSeleccionado(edad, "36 - 45")} onChange={onchangeEdad} />
+                  <CustomInput type="radio" id="radioEdad4" label="Danzas" value="46 - más" checked={esSeleccionado(edad, "46 - más")} onChange={onchangeEdad} />
                 </div>
               </FormGroup>
 
               <FormGroup>
-                <Label for="CheckboxEventosdonde">¿Cómo te gustan que sean los eventos?</Label>
+                <Label for="CheckboxEventosdonde">¿Ha asistido o asiste a eventos de este tipo?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioEventodonde1" label="Al aire libre" value="aire libre" checked={esSeleccionado(eventos_donde, "aire libre")} onChange={onchangeEventos_donde} />
-                  <CustomInput type="radio" id="radioEventodonde2" label="En sitios cerrados" value="sitio cerrado" checked={esSeleccionado(eventos_donde, "sitio cerrado")} onChange={onchangeEventos_donde} />
+                  <CustomInput type="radio" id="radioEventodonde1" label="Si" value="aire libre" checked={esSeleccionado(eventos_donde, "aire libre")} onChange={onchangeEventos_donde} />
+                  <CustomInput type="radio" id="radioEventodonde2" label="No" value="sitio cerrado" checked={esSeleccionado(eventos_donde, "sitio cerrado")} onChange={onchangeEventos_donde} />
                 </div>
               </FormGroup>
 
