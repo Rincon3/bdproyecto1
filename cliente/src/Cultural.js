@@ -13,14 +13,16 @@ export const Cultural = () => {
   const [asistencia, setAsistencia] = useState('')
   const [numero_asistencia, setNumero_asitencia] =useState('')
   
+  
 
 
     const guardabase = async () => {
-        const res = await axios.post('/basedatos/insertarEncuestatipo', {nombre_evento, asistencia, numero_asistencia});
+        const res = await axios.post('/basedatos/insertarEncuestatipo', {nombre_evento, asistencia, numero_asistencia });
         console.log(res.data)
         setNombre('')
         setAsistencia('')
         setNumero_asitencia('')
+        
 
       }
     const  consultabase = async () => {
@@ -75,6 +77,8 @@ export const Cultural = () => {
         setNumero_asitencia(e.currentTarget.value);
         console.log(numero_asistencia)
       }
+
+      
 
     const inserta = () => {
         console.log('Se hizo click');
@@ -137,6 +141,9 @@ export const Cultural = () => {
                   <CustomInput type="radio" id="radioNumero_asistencia3" label="6 a mas veces" value="6 a mas veces" checked={esSeleccionado(numero_asistencia, "6 a mas veces")} onChange={onchangeNumero_asitencia} />
                 </div>
               </FormGroup>
+              
+                
+
                 
                 
                 <button
