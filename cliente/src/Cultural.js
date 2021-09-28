@@ -2,7 +2,7 @@ import React, {useState} from 'react'
  
 import { Link } from 'react-router-dom';
 import axios from 'axios'
-import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
+import { CustomInput, FormGroup, Label } from 'reactstrap';
  
 export const Cultural = () => {
  

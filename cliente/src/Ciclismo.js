@@ -3,25 +3,27 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import { CustomInput, FormGroup, Label } from 'reactstrap';
 
-export const Futbol = () => {
+export const Ciclismo = () => {
 
   const [documento, setDocumento] = useState('')
   const [nombre, setNombre] = useState('')
   const [apellido, setApellido] = useState('')
 
   const [tipo_deporte, setTipo_deporte] = useState('')
-  const [equipo, setEquipo] = useState('')
+  const [bicicleta, setBicicleta] = useState('')
+  const [participar_ciclista, setParticipar_ciclista] = useState('')
   
   const buttonTerminar = document.querySelector(".btnTerminar");
 
 
     const guardabase = async () => {
         const res = await axios.post('/basedatos/insertarEncuestaDeportes', {tipo_deporte});
-        const res2 = await axios.post('/basedatos/insertarEncuestaFutbol', {equipo});
+        const res2 = await axios.post('/basedatos/insertarEncuestaFutbol', {bicicleta, participar_ciclista});
         console.log(res.data)
         console.log(res2.data)
         setTipo_deporte('')
-        setEquipo('')
+        setBicicleta('')
+        setParticipar_ciclista('')
     }
 
     
@@ -60,16 +62,22 @@ export const Futbol = () => {
         
       }
 
-      //Onchange agregado para edad
+      //Onchange agregado para tipo_deporte
       const onchangeTipo_deporte = (e) => {
         setTipo_deporte(e.currentTarget.value);
         console.log(tipo_deporte)
       }
 
-      //Onchange agregado para eventos_donde
-      const onchangeEquipo = (e) => {
-        setEquipo(e.currentTarget.value);
-        console.log(equipo)
+      //Onchange agregado para bicicleta
+      const onchangeBicicleta = (e) => {
+        setBicicleta(e.currentTarget.value);
+        console.log(bicicleta)
+      }
+
+      //Onchange agregado para participar_bicicleta
+      const onchangeParticipar_ciclista = (e) => {
+        setParticipar_ciclista(e.currentTarget.value);
+        console.log(participar_ciclista)
       }
       
 
@@ -107,26 +115,29 @@ export const Futbol = () => {
             
     return (
         <div  className="formdb__box-containter">
-            <h3 className="auth__title">FÚTBOL</h3>
+            <h3 className="auth__title">CICLISMO</h3>
 
               <FormGroup>
-                <Label for="CheckboxTipo_deporte">¿Qué tipo de fútbol te gusta?</Label>
+                <Label for="CheckboxTipo_deporte">¿Qué tipo de ciclismo te gusta?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioTipo_deporte1" label="Futbol tradicional" value="futbol tradicional" checked={esSeleccionado(tipo_deporte, "futbol tradicional")} onChange={onchangeTipo_deporte} />
-                  <CustomInput type="radio" id="radioTipo_deporte2" label="Fútbol sala" value="futbol sala" checked={esSeleccionado(tipo_deporte, "futbol sala")} onChange={onchangeTipo_deporte} />
-                  <CustomInput type="radio" id="radioTipo_deporte3" label="Fútbol playa" value="futbol playa" checked={esSeleccionado(tipo_deporte, "futbol playa")} onChange={onchangeTipo_deporte} />
+                  <CustomInput type="radio" id="radioTipo_deporte1" label="Ciclismo de ruta" value="ciclismo de ruta" checked={esSeleccionado(tipo_deporte, "ciclismo de ruta")} onChange={onchangeTipo_deporte} />
+                  <CustomInput type="radio" id="radioTipo_deporte2" label="Ciclismo de pista" value="ciclismo de pista" checked={esSeleccionado(tipo_deporte, "ciclismo de pista")} onChange={onchangeTipo_deporte} />
                 </div>
               </FormGroup>
 
               <FormGroup>
-                <Label for="CheckboxEquipo">¿Cuál es tu equipo favorito?</Label>
+                <Label for="CheckboxParticipar_ciclista">¿Te gustaría participar como ciclista?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioEquipo1" label="Deportivo Cali" value="deportivo cali" checked={esSeleccionado(equipo, "deportivo cali")} onChange={onchangeEquipo} />
-                  <CustomInput type="radio" id="radioEquipo2" label="América" value="america" checked={esSeleccionado(equipo, "america")} onChange={onchangeEquipo} />
-                  <CustomInput type="radio" id="radioEquipo3" label="Cortuluá" value="cortulua" checked={esSeleccionado(equipo, "cortulua")} onChange={onchangeEquipo} />
-                  <CustomInput type="radio" id="radioEquipo4" label="Nacional" value="nacional" checked={esSeleccionado(equipo, "nacional")} onChange={onchangeEquipo} />
-                  <CustomInput type="radio" id="radioEquipo5" label="Millonarios" value="millonarios" checked={esSeleccionado(equipo, "millonarios")} onChange={onchangeEquipo} />
-                  
+                  <CustomInput type="radio" id="radioParticipa_ciclista1" label="Si" value={true} checked={esSeleccionado(participar_ciclista, "true")} onChange={onchangeParticipar_ciclista} />
+                  <CustomInput type="radio" id="radioParticipa_ciclista2" label="No" value={false} checked={esSeleccionado(participar_ciclista, "false")} onChange={onchangeParticipar_ciclista} />                
+                </div>
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="CheckboxBicicleta">¿Tienes bicicleta propia?</Label>
+                <div>
+                  <CustomInput type="radio" id="radioBicicleta1" label="Si" value={true} checked={esSeleccionado(bicicleta, "true")} onChange={onchangeBicicleta} />
+                  <CustomInput type="radio" id="radioBicicleta2" label="No" value={false} checked={esSeleccionado(bicicleta, "false")} onChange={onchangeBicicleta} />                
                 </div>
               </FormGroup>
  

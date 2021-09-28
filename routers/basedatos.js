@@ -69,27 +69,51 @@ router.post('/insertarEncuestaDeportes', async (req, res) => {
 router.post('/insertarEncuestaFutbol', async (req, res) => {
   const { equipo } = req.body;
   await client.query(
-    `INSERT INTO futbol(id_usuario, id_deporte, equipo) VALUES((SELECT max(id_usuario) FROM principal), (SELECT max(id_deporte) FROM deporte), '${equipo}')`
+    `INSERT INTO futbol(id_usuario, equipo) VALUES((SELECT max(id_usuario) FROM principal), '${equipo}')`
   );
   res.send('INSERTADO');
 });
 
+<<<<<<< HEAD
 router.post('/insertarEncuestaCultural', async (req, res) => {
   const { genero} = req.body;
   await client.query(
     `INSERT INTO cultural(id_usuario, genero) VALUES((SELECT max(id_usuario) FROM principal),'${genero}')`
+=======
+router.post('/insertarEncuestaCiclismo', async (req, res) => {
+  const { bicicleta, participar_ciclista } = req.body;
+  await client.query(
+    `INSERT INTO ciclismo(id_usuario, bicicleta, participar_ciclista) VALUES((SELECT max(id_usuario) FROM principal), '${bicicleta}', '${participar_ciclista}')`
+>>>>>>> 1458cb7e83754c0c7ac0812ed0601e3ab3daf609
   );
   res.send('INSERTADO');
 });
 
+<<<<<<< HEAD
 router.post('/insertarEncuestaConcirto', async (req, res) => {
   const { artista } = req.body;
   await client.query(
     `INSERT INTO concierto(id_usuario, artista) VALUES((SELECT max(id_usuario) FROM principal),  '${artista}')`
+=======
+router.post('/insertarEncuestaLucha', async (req, res) => {
+  const {} = req.body;
+  await client.query(
+    `INSERT INTO lucha(id_usuario) VALUES((SELECT max(id_usuario) FROM principal))`
+>>>>>>> 1458cb7e83754c0c7ac0812ed0601e3ab3daf609
   );
   res.send('INSERTADO');
 });
 
+<<<<<<< HEAD
+=======
+router.post('/insertarEncuestaAutomovilismo', async (req, res) => {
+  const { tipo_evento } = req.body;
+  await client.query(
+    `INSERT INTO automovilismo(id_usuario, tipo_evento) VALUES((SELECT max(id_usuario) FROM principal), '${tipo_evento}')`
+  );
+  res.send('INSERTADO');
+});
+>>>>>>> 1458cb7e83754c0c7ac0812ed0601e3ab3daf609
 
 router.delete('/eliminarpacientes', async (req, res) => {
   const { numid } = req.body;
