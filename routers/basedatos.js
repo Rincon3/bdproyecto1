@@ -123,7 +123,7 @@ router.post('/insertarEncuestaTeatro', async (req, res) => {
   router.post('/insertarEncuestaPeliculas', async (req, res) => {
     const { formato , autocine} = req.body;
     await client.query(
-      `INSERT INTO peliculas(id_usuario, formato, autocine) VALUES((SELECT max(id_usuario) FROM principal),  '${formato}', '${autocine}')`
+      `INSERT INTO pelicula(id_usuario, formato, autocine) VALUES((SELECT max(id_usuario) FROM principal),  '${formato}', '${autocine}')`
       );
       res.send('INSERTADO');
     });

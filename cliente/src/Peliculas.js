@@ -89,8 +89,8 @@ export const Peliculas = () => {
               <FormGroup>
                 <Label for="CheckboxAutocine">¿Has ido a un autocine?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioAutocine1" label="Si" value={true} checked={esSeleccionado(autocine, "true")} onChange={onchangeAutocine} />
-                  <CustomInput type="radio" id="radioAutocine2" label="No" value={false} checked={esSeleccionado(autocine, "false")} onChange={onchangeAutocine} />
+                  <CustomInput type="radio" id="radioAutocine1" label="Si" value="si" checked={esSeleccionado(autocine, "si")} onChange={onchangeAutocine} />
+                  <CustomInput type="radio" id="radioAutocine2" label="No" value="no" checked={esSeleccionado(autocine, "no")} onChange={onchangeAutocine} />
                 </div>
               </FormGroup>
                 
