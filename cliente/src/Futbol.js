@@ -5,14 +5,11 @@ import { CustomInput, FormGroup, Label } from 'reactstrap';
 
 export const Futbol = () => {
 
-  const [documento, setDocumento] = useState('')
-  const [nombre, setNombre] = useState('')
-  const [apellido, setApellido] = useState('')
-
   const [tipo_deporte, setTipo_deporte] = useState('')
   const [equipo, setEquipo] = useState('')
   
   const buttonTerminar = document.querySelector(".btnTerminar");
+  const buttonEnviar = document.querySelector(".btnEnviar");
 
 
     const guardabase = async () => {
@@ -23,42 +20,6 @@ export const Futbol = () => {
         setTipo_deporte('')
         setEquipo('')
     }
-
-    
-    const  consultabase = async () => {
-        const res = await axios.get('/basedatos/consultatotalpacientes');
-        console.log('data api',res.data)
-        return res
-      }
-
-      const actualizabase = async () => {
-        const res = await axios.put('/basedatos/actualizarpacientes', {numid: documento, nombre, apellido });
-        console.log(res.data)
-        setDocumento('')
-        setNombre('')
-        setApellido('')
-      }
-
-      const  eliminabase = async () => {
-        const res = await axios.delete('/basedatos/eliminarpacientes', {data: {numid: documento}});
-        console.log('data api',res.data)
-        return res
-      }
-    
-      const onChangedc = (e) => {
-        setDocumento(e.currentTarget.value);
-        console.log(documento)
-      };
-    
-      const onChangenm = (e) => {
-        setNombre(e.currentTarget.value);
-        console.log(nombre)
-      };  
-
-      const onChangeap = (e) => {
-        setApellido(e.currentTarget.value)
-        
-      }
 
       //Onchange agregado para edad
       const onchangeTipo_deporte = (e) => {
@@ -77,24 +38,8 @@ export const Futbol = () => {
         console.log('Se hizo click');
          guardabase()
          buttonTerminar.disabled=false
-      }
-
-    const consulta = () => {
-        console.log('Se hizo click consulta');
-        consultabase()
-
-        
-    }
-
-      const actualiza = () => {
-        console.log('Se hizo click actualiza');
-        actualizabase() 
-      }
-
-      const elimina = () => {
-        console.log('Se hizo click elimina');
-        eliminabase() 
-      }      
+         buttonEnviar.disabled=true
+      }    
 
       const esSeleccionado = (opcion, value) => {
         if(opcion===value){
@@ -103,8 +48,7 @@ export const Futbol = () => {
           return false;
         }
       }
-
-            
+   
     return (
         <div  className="formdb__box-containter">
             <h3 className="auth__title">FÚTBOL</h3>
@@ -131,7 +75,7 @@ export const Futbol = () => {
               </FormGroup>
  
                 <button
-                className="btn btn-primary" 
+                className="btnEnviar btn btn-primary" 
                 type="button"
                 onClick={()=>inserta()}>
                   enviar info
@@ -144,33 +88,6 @@ export const Futbol = () => {
                 type="button">Terminar encuesta
                 </button>
                 </Link>
-
-
-                
-
-                <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>consulta()}
-                > 
-                consultar
-                </button>
-
-                <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>elimina()}
-                > 
-                eliminar
-                </button>
-
-                <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>actualiza()}
-                > 
-                actualizar
-                </button>
         </div>
     )
 }

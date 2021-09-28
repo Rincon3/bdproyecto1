@@ -7,7 +7,7 @@ export const Concierto = () => {
 
   const [genero, setGenero] = useState('')
   const [artista, setArtista] = useState('')
-  
+  const buttonEnviar = document.querySelector(".btnEnviar");
   
   
 
@@ -16,6 +16,7 @@ export const Concierto = () => {
         const res = await axios.post('/basedatos/insertarEncuestaCultural', {genero });
         const res2 = await axios.post('/basedatos/insertarEncuestaConcirto', {artista });
         console.log(res.data)
+        console.log(res2.data)
         setGenero('')
         setArtista('')
       
@@ -40,6 +41,7 @@ export const Concierto = () => {
     const inserta = () => {
         console.log('Se hizo click');
          guardabase()
+         buttonEnviar.disabled=true
       }
      
 
@@ -85,7 +87,7 @@ export const Concierto = () => {
                 
                 
                 <button
-                className="btn btn-primary" 
+                className="btnEnviar btn btn-primary" 
                 type="button"
                 onClick={()=>inserta()}
                 > 
