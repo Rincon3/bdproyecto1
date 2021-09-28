@@ -17,7 +17,11 @@ export const Cultural = () => {
   const [cantidad_pago, setCantidad_pago] = useState('')
 
   const buttonEnviar = document.querySelector(".btnEnviar");
- 
+  const buttonConcierto = document.querySelector(".btnConcierto");
+  const buttonTeatro = document.querySelector(".btnTeatro");
+  const buttonDanzas = document.querySelector(".btnDanzas");
+  const buttonPeliculas = document.querySelector(".btnPeliculas");
+
     const guardabase = async () => {
         const res = await axios.post('/basedatos/insertarEncuestatipo', {nombre_evento, asistencia, numero_asistencia, 
           participacion, pago, medio_pago, duracion, localidad, cantidad_pago});
@@ -89,6 +93,30 @@ export const Cultural = () => {
           return true;
         }else{
           return false;
+        }
+      }
+
+      const validacionEvento = () => {
+        if(nombre_evento==='concierto'){
+          buttonConcierto.disabled = false
+          buttonTeatro.disabled = true
+          buttonDanzas.disabled = true
+          buttonPeliculas.disabled = true
+        }else if(nombre_evento==='teatro'){
+          buttonConcierto.disabled = true
+          buttonTeatro.disabled = false
+          buttonDanzas.disabled = true
+          buttonPeliculas.disabled = true
+        }else if(nombre_evento==='danzas'){
+          buttonConcierto.disabled = true
+          buttonTeatro.disabled = true
+          buttonDanzas.disabled = false
+          buttonPeliculas.disabled = true
+        }else{
+          buttonConcierto.disabled = true
+          buttonTeatro.disabled = true
+          buttonDanzas.disabled = true
+          buttonPeliculas.disabled = false
         }
       }
             
@@ -212,7 +240,7 @@ export const Cultural = () => {
                 </Link>
                 <Link to="/FormDanza">
                 <button
-                class="btnDanza btn btn-primary" 
+                class="btnDanzas btn btn-primary" 
                 disabled
                 type="button">
                   Sección Danza
