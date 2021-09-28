@@ -113,21 +113,6 @@ router.post('/insertarEncuestaAutomovilismo', async (req, res) => {
   res.send('INSERTADO');
 });
 
-router.delete('/eliminarpacientes', async (req, res) => {
-  const { numid } = req.body;
-  await client.query(
-  `DELETE FROM pacientes WHERE numid='${numid}'`);
-  res.send('ELIMINADO');
-});
-
-router.put('/actualizarpacientes', async (req, res) => {
-  const {nombre, apellido, numid}= req.body;
-  await client.query(
-    `UPDATE pacientes SET nombre='${nombre}' WHERE numid='${numid}'`
-  );
-  res.send('ACTUALIZADO');
-});
-
 router.post('/insertarEncuestaTeatro', async (req, res) => {
   const { artista } = req.body;
   await client.query(
@@ -144,7 +129,7 @@ router.post('/insertarEncuestaTeatro', async (req, res) => {
     });
 
     router.post('/insertarEncuestaDanza', async (req, res) => {
-      const { artista } = req.body;
+      const { } = req.body;
       await client.query(
         `INSERT INTO danza(id_usuario) VALUES((SELECT max(id_usuario) FROM principal))`
         );

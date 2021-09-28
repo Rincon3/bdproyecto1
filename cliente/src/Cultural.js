@@ -108,7 +108,7 @@ export const Cultural = () => {
           buttonTeatro.disabled = false
           buttonDanzas.disabled = true
           buttonPeliculas.disabled = true
-        }else if(nombre_evento==='danzas'){
+        }else if(nombre_evento==='danza'){
           buttonConcierto.disabled = true
           buttonTeatro.disabled = true
           buttonDanzas.disabled = false

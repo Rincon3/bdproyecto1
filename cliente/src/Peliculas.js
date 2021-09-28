@@ -79,7 +79,7 @@ export const Peliculas = () => {
               </FormGroup>
 
               <FormGroup>
-                <Label for="CheckboxArtista">¿Qué formato de películas prefieres?</Label>
+                <Label for="CheckboxFormato">¿Qué formato de películas prefieres?</Label>
                 <div>
                   <CustomInput type="radio" id="radioFormato1" label="2D" value="2D" checked={esSeleccionado(formato, "2D")} onChange={onchangeFormato} />
                   <CustomInput type="radio" id="radioFormato2" label="3D" value="3D" checked={esSeleccionado(formato, "3D")} onChange={onchangeFormato} />
@@ -87,12 +87,10 @@ export const Peliculas = () => {
                 </div>
               </FormGroup>
               <FormGroup>
-                <Label for="CheckboxArtista">¿Has ufi a un autocine?</Label>
+                <Label for="CheckboxAutocine">¿Has ido a un autocine?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioAutocine1" label="si" value="si" checked={esSeleccionado(autocine, "si")} onChange={onchangeAutocine} />
-                  <CustomInput type="radio" id="radioAutocine2" label="no" value="no" checked={esSeleccionado(autocine, "no")} onChange={onchangeAutocine} />
-                  <CustomInput type="radio" id="radioAutocine3" label="no, no vale la pena" value="no, no vale la pena" checked={esSeleccionado(autocine, "no, no vale la pena")} onChange={onchangeAutocine} />
-                  <CustomInput type="radio" id="radioAutocine4" label="si, no vale la pena" value="si, no vale la pena" checked={esSeleccionado(autocine, "si, no vale la pena")} onChange={onchangeAutocine} />
+                  <CustomInput type="radio" id="radioAutocine1" label="Si" value={true} checked={esSeleccionado(autocine, "true")} onChange={onchangeAutocine} />
+                  <CustomInput type="radio" id="radioAutocine2" label="No" value={false} checked={esSeleccionado(autocine, "false")} onChange={onchangeAutocine} />
                 </div>
               </FormGroup>
                 

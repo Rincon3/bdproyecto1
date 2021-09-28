@@ -13,7 +13,7 @@ export const Danza = () => {
 
     const guardabase = async () => {
         const res = await axios.post('/basedatos/insertarEncuestaCultural', {genero });
-        const res2 = await axios.post('/basedatos/insertarEncuestaDanza', {genero });
+        const res2 = await axios.post('/basedatos/insertarEncuestaDanza', {});
         console.log(res.data)
         console.log(res2.data)
         setGenero('')
