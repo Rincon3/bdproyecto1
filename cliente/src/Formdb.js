@@ -1,7 +1,8 @@
 import React from 'react'
-import {Cultural} from './Cultural'
+import { Cultural } from './Cultural'
 import { Principal } from './Principal'
 import { Deportes } from './Deportes'
+import { Futbol } from './Futbol'
 
 export const FormPrincipal = () => {
     return (
@@ -23,6 +24,14 @@ export const FormDeportes = () => {
     return (
         <div className="formdb__main">
             <Deportes/>
+        </div>
+    )
+}
+
+export const FormFutbol = () => {
+    return (
+        <div className="formdb__main">
+            <Futbol/>
         </div>
     )
 }

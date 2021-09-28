@@ -69,7 +69,7 @@ router.post('/insertarEncuestaDeportes', async (req, res) => {
 router.post('/insertarEncuestaFutbol', async (req, res) => {
   const { equipo } = req.body;
   await client.query(
-    `INSERT INTO futbol(id_usuario, id_deporte, equipo) VALUES((SELECT max(id_usuario) FROM principal), (SELECT max(id_deporte) FROM deporte), '${equipo}')`
+    `INSERT INTO futbol(id_usuario, equipo) VALUES((SELECT max(id_usuario) FROM principal), '${equipo}')`
   );
   res.send('INSERTADO');
 });

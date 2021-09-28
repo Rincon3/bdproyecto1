@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import { CustomInput, FormGroup, Label } from 'reactstrap';
 
-export const Principal = () => {
+export const Futbol = () => {
 
   const [documento, setDocumento] = useState('')
   const [nombre, setNombre] = useState('')
@@ -12,10 +12,11 @@ export const Principal = () => {
   const [tipo_deporte, setTipo_deporte] = useState('')
   const [equipo, setEquipo] = useState('')
   
+  const buttonTerminar = document.querySelector(".btnTerminar");
 
 
     const guardabase = async () => {
-        const res = await axios.post('/basedatos/insertarEncuestaDeporte', {tipo_deporte});
+        const res = await axios.post('/basedatos/insertarEncuestaDeportes', {tipo_deporte});
         const res2 = await axios.post('/basedatos/insertarEncuestaFutbol', {equipo});
         console.log(res.data)
         console.log(res2.data)
@@ -74,14 +75,14 @@ export const Principal = () => {
 
     const inserta = () => {
         console.log('Se hizo click');
-         validacionTipo()
          guardabase()
+         buttonTerminar.disabled=false
       }
 
     const consulta = () => {
         console.log('Se hizo click consulta');
         consultabase()
-        validacionTipo()
+
         
     }
 
@@ -102,6 +103,7 @@ export const Principal = () => {
           return false;
         }
       }
+
             
     return (
         <div  className="formdb__box-containter">
@@ -119,9 +121,12 @@ export const Principal = () => {
               <FormGroup>
                 <Label for="CheckboxEquipo">¿Cuál es tu equipo favorito?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioTipo_deporte1" label="Futbol tradicional" value="futbol tradicional" checked={esSeleccionado(tipo_deporte, "futbol tradicional")} onChange={onchangeTipo_deporte} />
-                  <CustomInput type="radio" id="radioTipo_deporte2" label="Fútbol sala" value="futbol sala" checked={esSeleccionado(tipo_deporte, "futbol sala")} onChange={onchangeTipo_deporte} />
-                  <CustomInput type="radio" id="radioTipo_deporte3" label="Fútbol playa" value="futbol playa" checked={esSeleccionado(tipo_deporte, "futbol playa")} onChange={onchangeTipo_deporte} />
+                  <CustomInput type="radio" id="radioEquipo1" label="Deportivo Cali" value="deportivo cali" checked={esSeleccionado(equipo, "deportivo cali")} onChange={onchangeEquipo} />
+                  <CustomInput type="radio" id="radioEquipo2" label="América" value="america" checked={esSeleccionado(equipo, "america")} onChange={onchangeEquipo} />
+                  <CustomInput type="radio" id="radioEquipo3" label="Cortuluá" value="cortulua" checked={esSeleccionado(equipo, "cortulua")} onChange={onchangeEquipo} />
+                  <CustomInput type="radio" id="radioEquipo4" label="Nacional" value="nacional" checked={esSeleccionado(equipo, "nacional")} onChange={onchangeEquipo} />
+                  <CustomInput type="radio" id="radioEquipo5" label="Millonarios" value="millonarios" checked={esSeleccionado(equipo, "millonarios")} onChange={onchangeEquipo} />
+                  
                 </div>
               </FormGroup>
  
@@ -132,21 +137,11 @@ export const Principal = () => {
                   enviar info
                 </button>
 
-                <Link to="FormCultural">
+                <Link to="FormPrincipal">
                 <button
-                class="btnCultura btn btn-primary" 
+                class="btnTerminar btn btn-primary" 
                 disabled
-                type="button">
-                  Siguiente sección Cultura
-                </button>
-                </Link>
-
-                <Link to="/FormDeportes" >
-                <button
-                class="btnDeporte btn btn-primary" 
-                disabled
-                type="button">
-                  Siguiente sección Deporte
+                type="button">Terminar encuesta
                 </button>
                 </Link>
 
