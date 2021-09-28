@@ -85,6 +85,7 @@ export const Cultural = () => {
     const inserta = () => {
         console.log('Se hizo click');
          guardabase()
+         validacionEvento()
          buttonEnviar.disabled=true
       }     
  
