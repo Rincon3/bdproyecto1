@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
  
+import { Link } from 'react-router-dom';
 import axios from 'axios'
 import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
  
@@ -18,6 +19,8 @@ export const Cultural = () => {
   const [duracion, setDuracion] = useState('')
   const [localidad, setLocalidad] = useState('')
   const [cantidad_pago, setCantidad_pago] = useState('')
+
+  
  
   
  
@@ -241,6 +244,14 @@ export const Cultural = () => {
                 > 
                 enviar info
                 </button>
+
+                <Link to="/FormConcierto">
+                <button
+                class="btnConcierto btn btn-primary" 
+                type="button">
+                  Sección Concierto
+                </button>
+                </Link>
  
                 <button
                 className="btn btn-primary" 
