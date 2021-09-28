@@ -5,10 +5,6 @@ import { CustomInput, FormGroup, Label } from 'reactstrap';
 
 export const Deportes = () => {
 
-  const [documento, setDocumento] = useState('')
-  const [nombre, setNombre] = useState('')
-  const [apellido, setApellido] = useState('')
-
   const [nombre_evento, setNombre_evento] = useState('')
   const [asistencia, setAsistencia] = useState('')
   const [numero_asistencia, setNumero_asistencia] = useState('')
@@ -18,7 +14,12 @@ export const Deportes = () => {
   const [duracion, setDuracion] = useState('')
   const [localidad, setLocalidad] = useState('')
   const [cantidad_pago, setCantidad_pago] = useState('')
-
+  
+  const buttonEnviar = document.querySelector(".btnEnviar");
+  const buttonFutbol = document.querySelector(".btnFutbol");
+  const buttonCiclismo = document.querySelector(".btnCiclismo");
+  const buttonLucha = document.querySelector(".btnLucha");
+  const buttonAutomovilismo = document.querySelector(".btnAutomovilismo");
 
 
     const guardabase = async () => {
@@ -34,41 +35,6 @@ export const Deportes = () => {
         setDuracion('')
         setLocalidad('')
         setCantidad_pago('')
-      }
-    
-    const  consultabase = async () => {
-        const res = await axios.get('/basedatos/consultatotalpacientes');
-        console.log('data api',res.data)
-        return res
-      }
-
-      const actualizabase = async () => {
-        const res = await axios.put('/basedatos/actualizarpacientes', {numid: documento, nombre, apellido });
-        console.log(res.data)
-        setDocumento('')
-        setNombre('')
-        setApellido('')
-      }
-
-      const  eliminabase = async () => {
-        const res = await axios.delete('/basedatos/eliminarpacientes', {data: {numid: documento}});
-        console.log('data api',res.data)
-        return res
-      }
-    
-      const onChangedc = (e) => {
-        setDocumento(e.currentTarget.value);
-        console.log(documento)
-      };
-    
-      const onChangenm = (e) => {
-        setNombre(e.currentTarget.value);
-        console.log(nombre)
-      };  
-
-      const onChangeap = (e) => {
-        setApellido(e.currentTarget.value)
-        
       }
 
       //Onchange agregado para nombre_evento
@@ -120,29 +86,40 @@ export const Deportes = () => {
 
     const inserta = () => {
         console.log('Se hizo click');
-         guardabase()
-      }
-
-    const consulta = () => {
-        console.log('Se hizo click consulta');
-        consultabase()
-    }
-
-      const actualiza = () => {
-        console.log('Se hizo click actualiza');
-        actualizabase() 
-      }
-
-      const elimina = () => {
-        console.log('Se hizo click elimina');
-        eliminabase() 
-      }      
+        guardabase()
+        validacionEvento()
+        buttonEnviar.disabled=true
+      }     
 
       const esSeleccionado = (opcion, value) => {
         if(opcion===value){
           return true;
         }else{
           return false;
+        }
+      }
+
+      const validacionEvento = () => {
+        if(nombre_evento==='futbol'){
+          buttonFutbol.disabled = false
+          buttonCiclismo.disabled = true
+          buttonLucha.disabled = true
+          buttonAutomovilismo.disabled = true
+        }else if(nombre_evento==='ciclismo'){
+          buttonCiclismo.disabled = false
+          buttonFutbol.disabled = true
+          buttonLucha.disabled = true
+          buttonAutomovilismo.disabled = true
+        }else if(nombre_evento==='lucha libre'){
+          buttonLucha.disabled = false
+          buttonFutbol.disabled = true
+          buttonCiclismo.disabled = true
+          buttonAutomovilismo.disabled = true
+        }else{
+          buttonAutomovilismo.disabled = false
+          buttonFutbol.disabled = true
+          buttonCiclismo.disabled = true
+          buttonLucha.disabled = true
         }
       }
             
@@ -203,7 +180,7 @@ export const Deportes = () => {
               </FormGroup>
 
               <FormGroup>
-                <Label for="CheckboxDuracion">¿A cuantos eventos de deporte has ido en el último año?</Label>
+                <Label for="CheckboxDuracion">¿Cuánto te gustaría que durara el evento deportivo?</Label>
                 <div>
                   <CustomInput type="radio" id="radioDuracion1" label="1 a 2 horas" value="1 a 2 horas" checked={esSeleccionado(duracion, "1 a 2 horas")} onChange={onchangeDuracion} />
                   <CustomInput type="radio" id="radioDuracion2" label="3 a 4 horas" value="3 a 4 horas" checked={esSeleccionado(duracion, "3 a 4 horas")} onChange={onchangeDuracion} />
@@ -230,35 +207,47 @@ export const Deportes = () => {
 
  
                 <button
-                className="btn btn-primary" 
+                className="btnEnviar btn btn-primary" 
                 type="button"
                 onClick={()=>inserta()}>
                   enviar info
                 </button>
 
+                <Link to="FormFutbol">
                 <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>consulta()}
-                > 
-                consultar
+                class="btnFutbol btn btn-primary" 
+                disabled
+                type="button">
+                  Siguiente sección Futbol
                 </button>
+                </Link>
 
+                <Link to="/FormCiclismo" >
                 <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>elimina()}
-                > 
-                eliminar
+                class="btnCiclismo btn btn-primary" 
+                disabled
+                type="button">
+                  Siguiente sección Ciclismo
                 </button>
+                </Link>
 
+                <Link to="/FormLucha" >
                 <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>actualiza()}
-                > 
-                actualizar
+                class="btnLucha btn btn-primary" 
+                disabled
+                type="button">
+                  Siguiente sección Lucha libre
                 </button>
+                </Link>
+
+                <Link to="/FormAutomovilismo" >
+                <button
+                class="btnAutomovilismo btn btn-primary" 
+                disabled
+                type="button">
+                  Siguiente sección Automovilismo
+                </button>
+                </Link>
         </div>
     )
 }

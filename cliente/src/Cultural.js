@@ -1,14 +1,11 @@
 import React, {useState} from 'react'
-
+ 
+import { Link } from 'react-router-dom';
 import axios from 'axios'
-import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
-
+import { CustomInput, FormGroup, Label } from 'reactstrap';
+ 
 export const Cultural = () => {
-
-  const [documento, setDocumento] = useState('')
-  const [nombre, setNombre] = useState('')
-  const [apellido, setApellido] = useState('')
-
+ 
   const [nombre_evento, setNombre_evento] = useState('')
   const [asistencia, setAsistencia] = useState('')
   const [numero_asistencia, setNumero_asitencia] =useState('')
@@ -19,13 +16,19 @@ export const Cultural = () => {
   const [localidad, setLocalidad] = useState('')
   const [cantidad_pago, setCantidad_pago] = useState('')
 
+<<<<<<< HEAD
   
 
 
+=======
+  const buttonEnviar = document.querySelector(".btnEnviar");
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
     const guardabase = async () => {
-        const res = await axios.post('/basedatos/insertarEncuestatipo', {nombre_evento, asistencia, numero_asistencia});
+        const res = await axios.post('/basedatos/insertarEncuestatipo', {nombre_evento, asistencia, numero_asistencia, 
+          participacion, pago, medio_pago, duracion, localidad, cantidad_pago});
         console.log(res.data)
-        setNombre('')
+        setNombre_evento('')
         setAsistencia('')
         setNumero_asitencia('')
         setParticipacion('')
@@ -34,6 +37,7 @@ export const Cultural = () => {
         setDuracion('')
         setLocalidad('')
         setCantidad_pago('')
+<<<<<<< HEAD
         
 
 
@@ -73,6 +77,8 @@ export const Cultural = () => {
       const onChangeap = (e) => {
         setApellido(e.currentTarget.value)
         
+=======
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
       }
       
       //Onchange agregado para nombre_evento
@@ -94,52 +100,62 @@ export const Cultural = () => {
         setParticipacion(e.currentTarget.value);
         console.log(participacion)
       }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
       const onchangePago = (e) => {
         setPago(e.currentTarget.value);
         console.log(pago)
       }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
       const onchangeMedio_pago = (e) => {
         setMedio_pago(e.currentTarget.value);
         console.log(medio_pago)
       }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
       const onchangeDuracion = (e) => {
         setDuracion(e.currentTarget.value);
         console.log(duracion)
       }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
       const onchangeLocalidad = (e) => {
         setLocalidad(e.currentTarget.value);
         console.log(localidad)
       }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
       const onchangeCantidad_pago = (e) => {
         setCantidad_pago(e.currentTarget.value);
         console.log(cantidad_pago)
       }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
     const inserta = () => {
         console.log('Se hizo click');
          guardabase()
-      }
-
-    const consulta = () => {
-        console.log('Se hizo click consulta');
-        consultabase() 
-    }
-
-      const actualiza = () => {
-        console.log('Se hizo click actualiza');
-        actualizabase() 
-      }
-
-      const elimina = () => {
-        console.log('Se hizo click elimina');
-        eliminabase() 
-      }      
-
+         buttonEnviar.disabled=true
+      }     
+ 
       const esSeleccionado = (opcion, value) => {
         if(opcion===value){
           return true;
@@ -150,7 +166,11 @@ export const Cultural = () => {
             
     return (
         <div  className="formdb__box-containter">
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
             <h3 className="auth__title">CULTURAL</h3>
             
             <FormGroup>
@@ -162,7 +182,7 @@ export const Cultural = () => {
                   <CustomInput type="radio" id="radioNombre_evento4" label="Danza" value="automovilismo" checked={esSeleccionado(nombre_evento, "automovilismo")} onChange={onchangeNombre_evento} />
                 </div>
               </FormGroup>
-
+ 
               <FormGroup>
                 <Label for="CheckboxAsistencia">¿Ha asistido o asiste a eventos de este tipo?</Label>
                 <div>
@@ -180,7 +200,11 @@ export const Cultural = () => {
                   <CustomInput type="radio" id="radioNumero_asistencia3" label="6 a mas veces" value="6 a mas veces" checked={esSeleccionado(numero_asistencia, "6 a mas veces")} onChange={onchangeNumero_asitencia} />
                 </div>
               </FormGroup>
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
               <FormGroup>
                 <Label for="CheckboxParticipacion">¿Le gustaría participar en este evento?</Label>
                 <div>
@@ -188,7 +212,11 @@ export const Cultural = () => {
                   <CustomInput type="radio" id="radioParticipacion2" label="No" value={false} checked={esSeleccionado(participacion, "false")} onChange={onchangeParticipacion} />
                 </div>
               </FormGroup>
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
               <FormGroup>
                 <Label for="CheckboxPago">¿Pagarías por asistir a este evento?</Label>
                 <div>
@@ -196,7 +224,11 @@ export const Cultural = () => {
                   <CustomInput type="radio" id="radioPago2" label="No" value={false} checked={esSeleccionado(pago, "false")} onChange={onchangePago} />
                 </div>
               </FormGroup>
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
               <FormGroup>
                 <Label for="CheckboxMedio_pago">¿Por cuál medio de pago te gustaría pagar el ticket?</Label>
                 <div>
@@ -204,7 +236,11 @@ export const Cultural = () => {
                   <CustomInput type="radio" id="radioMedio_pago2" label="Online" value="online" checked={esSeleccionado(medio_pago, "online")} onChange={onchangeMedio_pago} />
                 </div>
               </FormGroup>
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
               <FormGroup>
                 <Label for="CheckboxDuracion">¿A cuantos eventos de deporte has ido en el último año?</Label>
                 <div>
@@ -213,6 +249,7 @@ export const Cultural = () => {
                   <CustomInput type="radio" id="radioDuracion3" label="5 o más horas" value="5 o más horas" checked={esSeleccionado(duracion, "5 o más horas")} onChange={onchangeDuracion} />
                 </div>
               </FormGroup>
+<<<<<<< HEAD
 
               <FormGroup>
                 <Label for="CheckboxLocalidad">¿Te gustaría que este evento se lleve a cabo en tu localidad?</Label>
@@ -222,6 +259,17 @@ export const Cultural = () => {
                 </div>
               </FormGroup>
 
+=======
+ 
+              <FormGroup>
+                <Label for="CheckboxLocalidad">¿Te gustaría que este evento se lleve a cabo en tu localidad?</Label>
+                <div>
+                  <CustomInput type="radio" id="radioLocalidad1" label="Si" value={true} checked={esSeleccionado(localidad, "true")} onChange={onchangeLocalidad} />
+                  <CustomInput type="radio" id="radioLocalidad2" label="No" value={false} checked={esSeleccionado(localidad, "false")} onChange={onchangeLocalidad} />
+                </div>
+              </FormGroup>
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
               <FormGroup>
                 <Label for="CheckboxCantidad_pago">¿Cuánto estarías dispuesto a pagar por este evento?</Label>
                 <div>
@@ -230,40 +278,57 @@ export const Cultural = () => {
                   <CustomInput type="radio" id="radioCantidad_pago3" label="100k o más" value="100k o más" checked={esSeleccionado(cantidad_pago, "100k o más")} onChange={onchangeCantidad_pago} />
                 </div>
               </FormGroup>
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
                 
                 
                 <button
-                className="btn btn-primary" 
+                className="btnEnviar btn btn-primary" 
                 type="button"
                 onClick={()=>inserta()}
                 > 
                 enviar info
                 </button>
 
+                <Link to="/FormConcierto">
                 <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>consulta()}
-                > 
-                consultar
+                class="btnConcierto btn btn-primary"
+                disabled 
+                type="button">
+                  Sección Concierto
                 </button>
+                </Link>
 
+                <Link to="/FormTeatro">
                 <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>elimina()}
-                > 
-                eliminar
+                class="btnTeatro btn btn-primary" 
+                disabled
+                type="button">
+                  Sección Teatro
                 </button>
-
+                </Link>
+                <Link to="/FormPeliculas">
                 <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>actualiza()}
-                > 
-                actualizar
+                class="btnPeliculas btn btn-primary" 
+                disabled
+                type="button">
+                  Sección Peliculas
                 </button>
+                </Link>
+                <Link to="/FormDanza">
+                <button
+                class="btnDanza btn btn-primary" 
+                disabled
+                type="button">
+                  Sección Danza
+                </button>
+<<<<<<< HEAD
+=======
+                </Link>
+>>>>>>> 6c71193edc1ac398062048dd819ac5e1d42dc8f0
             
         </div>
     )
