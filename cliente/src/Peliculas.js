@@ -16,6 +16,7 @@ export const Peliculas = () => {
         const res = await axios.post('/basedatos/insertarEncuestaCultural', {genero });
         const res2 = await axios.post('/basedatos/insertarEncuestaPeliculas', {formato, autocine});
         console.log(res.data)
+        console.log(res2.data)
         setGenero('')
         setFormato('')
         setAutocine('')

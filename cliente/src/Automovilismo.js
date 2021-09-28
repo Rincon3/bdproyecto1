@@ -51,7 +51,7 @@ export const Automovilismo = () => {
             
     return (
         <div  className="formdb__box-containter">
-            <h3 className="auth__title">CICLISMO</h3>
+            <h3 className="auth__title">AUTOMOVILISMO</h3>
 
               <FormGroup>
                 <Label for="CheckboxTipo_deporte">¿Qué categoría del automovilismo es tu preferido ?</Label>

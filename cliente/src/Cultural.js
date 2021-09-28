@@ -218,30 +218,6 @@ export const Cultural = () => {
                   Sección Danza
                 </button>
                 </Link>
- 
-                <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>consulta()}
-                > 
-                consultar
-                </button>
- 
-                <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>elimina()}
-                > 
-                eliminar
-                </button>
- 
-                <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>actualiza()}
-                > 
-                actualizar
-                </button>
             
         </div>
     )
