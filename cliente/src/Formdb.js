@@ -2,17 +2,17 @@ import React from 'react'
 import { Cultural } from './Cultural'
 import { Principal } from './Principal'
 import { Deportes } from './Deportes'
-<<<<<<< HEAD
-import { Concierto } from './Concierto'
-=======
 import { Futbol } from './Futbol'
 import { Ciclismo } from './Ciclismo'
 //import { Lucha } from './Lucha'
 //import { Automovilismo} from './Automovilismo'
->>>>>>> 1458cb7e83754c0c7ac0812ed0601e3ab3daf609
+import { Concierto } from './Concierto'
+import { Teatro } from './Teatro'
+import { Peliculas } from './Peliculas'
+import { Danza } from './Danzas'
 
 export const FormPrincipal = () => {
-    return (
+    return(
         <div className="formdb__main">
             <Principal/>
         </div>
@@ -35,27 +35,17 @@ export const FormDeportes = () => {
     )
 }
 
-<<<<<<< HEAD
-export const FormConcierto = () => {
-    return (
-        <div className="formdb__main">
-            <Concierto/>
-=======
-export const FormFutbol = () => {
-    return (
-        <div className="formdb__main">
-            <Futbol/>
->>>>>>> 1458cb7e83754c0c7ac0812ed0601e3ab3daf609
-        </div>
-    )
-}
-
-<<<<<<< HEAD
-=======
 export const FormCiclismo = () => {
     return (
         <div className="formdb__main">
             <Ciclismo/>
+        </div>
+    )
+}
+export const FormFutbol = () => {
+    return (
+        <div className="formdb__main">
+            <Futbol/>
         </div>
     )
 }
@@ -77,4 +67,33 @@ export const FormAutomovilismo = () => {
     )
 }
 */
->>>>>>> 1458cb7e83754c0c7ac0812ed0601e3ab3daf609
+
+
+export const FormConcierto = () => {
+    return (
+        <div className="formdb__main">
+            <Concierto/>
+        </div>
+    )
+}
+export const FormTeatro = () => {
+    return (
+        <div className="formdb__main">
+            <Teatro/>
+        </div>
+    )
+}
+export const FormPeliculas = () => {
+    return (
+        <div className="formdb__main">
+            <Peliculas/>
+        </div>
+    )
+}
+export const FormDanza = () => {
+    return (
+        <div className="formdb__main">
+            <Danza/>
+        </div>
+    )
+}

@@ -5,14 +5,14 @@ import { Route } from 'react-router';
 import {FormPrincipal} from '../Formdb';
 import {FormCultural} from '../Formdb';
 import {FormDeportes} from '../Formdb';
-<<<<<<< HEAD
 import {FormConcierto} from '../Formdb';
-=======
+import {FormDanza} from '../Formdb';
+import {FormPeliculas} from '../Formdb';
+import {FormTeatro} from '../Formdb';
 import {FormFutbol} from '../Formdb';
 import {FormCiclismo} from '../Formdb'
 //import {FormLucha} from '../Formdb';
 //import {FormAutomovilismo} from '../Formdb';
->>>>>>> 1458cb7e83754c0c7ac0812ed0601e3ab3daf609
 
 function App(){
     return (
@@ -20,13 +20,13 @@ function App(){
             <Route path="/FormPrincipal" component={FormPrincipal} />
             <Route path="/FormCultural" component={FormCultural} />
             <Route path="/FormDeportes" component={FormDeportes} />
-<<<<<<< HEAD
             <Route path="/FormConcierto" component={FormConcierto} />
-=======
             <Route path="/FormFutbol" component={FormFutbol} />
             <Route path="/FormCiclismo" component={FormCiclismo} />
-            
->>>>>>> 1458cb7e83754c0c7ac0812ed0601e3ab3daf609
+            <Route path="/FormTeatro" component={FormTeatro} />
+            <Route path="/FormPeliculas" component={FormPeliculas} />
+            <Route path="/FormDanza" component={FormDanza} />
+
         </BrowserRouter>
     )
 }

@@ -172,7 +172,7 @@ export const Deportes = () => {
           buttonFutbol.disabled = true
           buttonCiclismo.disabled = true
           buttonLucha.disabled = true
-        } 
+        }
       }
             
     return (

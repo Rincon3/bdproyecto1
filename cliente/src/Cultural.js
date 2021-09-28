@@ -247,9 +247,35 @@ export const Cultural = () => {
 
                 <Link to="/FormConcierto">
                 <button
-                class="btnConcierto btn btn-primary" 
+                class="btnConcierto btn btn-primary"
+                disabled 
                 type="button">
                   Sección Concierto
+                </button>
+                </Link>
+
+                <Link to="/FormTeatro">
+                <button
+                class="btnTeatro btn btn-primary" 
+                disabled
+                type="button">
+                  Sección Teatro
+                </button>
+                </Link>
+                <Link to="/FormPeliculas">
+                <button
+                class="btnPeliculas btn btn-primary" 
+                disabled
+                type="button">
+                  Sección Peliculas
+                </button>
+                </Link>
+                <Link to="/FormDanza">
+                <button
+                class="btnDanza btn btn-primary" 
+                disabled
+                type="button">
+                  Sección Danza
                 </button>
                 </Link>
  

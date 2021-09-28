@@ -74,38 +74,36 @@ router.post('/insertarEncuestaFutbol', async (req, res) => {
   res.send('INSERTADO');
 });
 
-<<<<<<< HEAD
 router.post('/insertarEncuestaCultural', async (req, res) => {
   const { genero} = req.body;
   await client.query(
     `INSERT INTO cultural(id_usuario, genero) VALUES((SELECT max(id_usuario) FROM principal),'${genero}')`
-=======
+    );
+    res.send('INSERTADO');
+  });
 router.post('/insertarEncuestaCiclismo', async (req, res) => {
   const { bicicleta, participar_ciclista } = req.body;
   await client.query(
     `INSERT INTO ciclismo(id_usuario, bicicleta, participar_ciclista) VALUES((SELECT max(id_usuario) FROM principal), '${bicicleta}', '${participar_ciclista}')`
->>>>>>> 1458cb7e83754c0c7ac0812ed0601e3ab3daf609
   );
   res.send('INSERTADO');
 });
 
-<<<<<<< HEAD
 router.post('/insertarEncuestaConcirto', async (req, res) => {
   const { artista } = req.body;
   await client.query(
     `INSERT INTO concierto(id_usuario, artista) VALUES((SELECT max(id_usuario) FROM principal),  '${artista}')`
-=======
+    );
+    res.send('INSERTADO');
+  });
 router.post('/insertarEncuestaLucha', async (req, res) => {
   const {} = req.body;
   await client.query(
     `INSERT INTO lucha(id_usuario) VALUES((SELECT max(id_usuario) FROM principal))`
->>>>>>> 1458cb7e83754c0c7ac0812ed0601e3ab3daf609
   );
   res.send('INSERTADO');
 });
 
-<<<<<<< HEAD
-=======
 router.post('/insertarEncuestaAutomovilismo', async (req, res) => {
   const { tipo_evento } = req.body;
   await client.query(
@@ -113,7 +111,6 @@ router.post('/insertarEncuestaAutomovilismo', async (req, res) => {
   );
   res.send('INSERTADO');
 });
->>>>>>> 1458cb7e83754c0c7ac0812ed0601e3ab3daf609
 
 router.delete('/eliminarpacientes', async (req, res) => {
   const { numid } = req.body;
@@ -129,3 +126,26 @@ router.put('/actualizarpacientes', async (req, res) => {
   );
   res.send('ACTUALIZADO');
 });
+
+router.post('/insertarEncuestaTeatro', async (req, res) => {
+  const { artista } = req.body;
+  await client.query(
+    `INSERT INTO teatro(id_usuario) VALUES((SELECT max(id_usuario) FROM principal))`
+    );
+    res.send('INSERTADO');
+  });
+  router.post('/insertarEncuestaPeliculas', async (req, res) => {
+    const { formato , autocine} = req.body;
+    await client.query(
+      `INSERT INTO peliculas(id_usuario, formato, autocine) VALUES((SELECT max(id_usuario) FROM principal),  '${formato}', '${autocine}')`
+      );
+      res.send('INSERTADO');
+    });
+
+    router.post('/insertarEncuestaDanza', async (req, res) => {
+      const { artista } = req.body;
+      await client.query(
+        `INSERT INTO danza(id_usuario) VALUES((SELECT max(id_usuario) FROM principal))`
+        );
+        res.send('INSERTADO');
+      });
