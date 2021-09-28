@@ -5,10 +5,6 @@ import { CustomInput, FormGroup, Label } from 'reactstrap';
 
 export const Deportes = () => {
 
-  const [documento, setDocumento] = useState('')
-  const [nombre, setNombre] = useState('')
-  const [apellido, setApellido] = useState('')
-
   const [nombre_evento, setNombre_evento] = useState('')
   const [asistencia, setAsistencia] = useState('')
   const [numero_asistencia, setNumero_asistencia] = useState('')
@@ -18,7 +14,8 @@ export const Deportes = () => {
   const [duracion, setDuracion] = useState('')
   const [localidad, setLocalidad] = useState('')
   const [cantidad_pago, setCantidad_pago] = useState('')
-
+  
+  const buttonEnviar = document.querySelector(".btnEnviar");
   const buttonFutbol = document.querySelector(".btnFutbol");
   const buttonCiclismo = document.querySelector(".btnCiclismo");
   const buttonLucha = document.querySelector(".btnLucha");
@@ -38,41 +35,6 @@ export const Deportes = () => {
         setDuracion('')
         setLocalidad('')
         setCantidad_pago('')
-      }
-    
-    const  consultabase = async () => {
-        const res = await axios.get('/basedatos/consultatotalpacientes');
-        console.log('data api',res.data)
-        return res
-      }
-
-      const actualizabase = async () => {
-        const res = await axios.put('/basedatos/actualizarpacientes', {numid: documento, nombre, apellido });
-        console.log(res.data)
-        setDocumento('')
-        setNombre('')
-        setApellido('')
-      }
-
-      const  eliminabase = async () => {
-        const res = await axios.delete('/basedatos/eliminarpacientes', {data: {numid: documento}});
-        console.log('data api',res.data)
-        return res
-      }
-    
-      const onChangedc = (e) => {
-        setDocumento(e.currentTarget.value);
-        console.log(documento)
-      };
-    
-      const onChangenm = (e) => {
-        setNombre(e.currentTarget.value);
-        console.log(nombre)
-      };  
-
-      const onChangeap = (e) => {
-        setApellido(e.currentTarget.value)
-        
       }
 
       //Onchange agregado para nombre_evento
@@ -124,24 +86,10 @@ export const Deportes = () => {
 
     const inserta = () => {
         console.log('Se hizo click');
-         guardabase()
-      }
-
-    const consulta = () => {
-        console.log('Se hizo click consulta');
-        consultabase()
+        guardabase()
         validacionEvento()
-    }
-
-      const actualiza = () => {
-        console.log('Se hizo click actualiza');
-        actualizabase() 
-      }
-
-      const elimina = () => {
-        console.log('Se hizo click elimina');
-        eliminabase() 
-      }      
+        buttonEnviar.disabled=true
+      }     
 
       const esSeleccionado = (opcion, value) => {
         if(opcion===value){
@@ -259,7 +207,7 @@ export const Deportes = () => {
 
  
                 <button
-                className="btn btn-primary" 
+                className="btnEnviar btn btn-primary" 
                 type="button"
                 onClick={()=>inserta()}>
                   enviar info
@@ -300,30 +248,6 @@ export const Deportes = () => {
                   Siguiente sección Automovilismo
                 </button>
                 </Link>
-
-                <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>consulta()}
-                > 
-                consultar
-                </button>
-
-                <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>elimina()}
-                > 
-                eliminar
-                </button>
-
-                <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>actualiza()}
-                > 
-                actualizar
-                </button>
         </div>
     )
 }

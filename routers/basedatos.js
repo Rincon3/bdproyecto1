@@ -81,6 +81,7 @@ router.post('/insertarEncuestaCultural', async (req, res) => {
     );
     res.send('INSERTADO');
   });
+      
 router.post('/insertarEncuestaCiclismo', async (req, res) => {
   const { bicicleta, participar_ciclista } = req.body;
   await client.query(

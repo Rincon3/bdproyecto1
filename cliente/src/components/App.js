@@ -11,8 +11,8 @@ import {FormPeliculas} from '../Formdb';
 import {FormTeatro} from '../Formdb';
 import {FormFutbol} from '../Formdb';
 import {FormCiclismo} from '../Formdb'
-//import {FormLucha} from '../Formdb';
-//import {FormAutomovilismo} from '../Formdb';
+import {FormLucha} from '../Formdb';
+import {FormAutomovilismo} from '../Formdb';
 
 function App(){
     return (
@@ -27,11 +27,11 @@ function App(){
             <Route path="/FormPeliculas" component={FormPeliculas} />
             <Route path="/FormDanza" component={FormDanza} />
 
+            <Route path="/FormLucha" component={FormLucha}/>
+            <Route path="/FormAutomovilismo" component={FormAutomovilismo} />
+            
         </BrowserRouter>
     )
 }
 
 export default App
-
-//<Route path="/FormLucha" component={FormLucha}/>
-//<Route path="/FormAutomovilismo" component={FormAutomovilismo} />

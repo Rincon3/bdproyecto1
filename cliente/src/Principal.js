@@ -5,10 +5,6 @@ import { CustomInput, FormGroup, Label } from 'reactstrap';
 
 export const Principal = () => {
 
-  const [documento, setDocumento] = useState('')
-  const [nombre, setNombre] = useState('')
-  const [apellido, setApellido] = useState('')
-
   const [edad, setEdad] = useState('')
   const [eventos_donde, setEventos_donde] = useState('')
   const [lugares_eventos, setLugares_eventos] = useState('')
@@ -21,6 +17,7 @@ export const Principal = () => {
 
   const buttonCultura = document.querySelector(".btnCultura");
   const buttonDeporte = document.querySelector(".btnDeporte");
+  const buttonEnviar = document.querySelector(".btnEnviar");
   
 
 
@@ -36,41 +33,6 @@ export const Principal = () => {
         setPromo('')
         setInt_cultura('')
         setInt_deporte('')
-      }
-    
-    const  consultabase = async () => {
-        const res = await axios.get('/basedatos/consultatotalpacientes');
-        console.log('data api',res.data)
-        return res
-      }
-
-      const actualizabase = async () => {
-        const res = await axios.put('/basedatos/actualizarpacientes', {numid: documento, nombre, apellido });
-        console.log(res.data)
-        setDocumento('')
-        setNombre('')
-        setApellido('')
-      }
-
-      const  eliminabase = async () => {
-        const res = await axios.delete('/basedatos/eliminarpacientes', {data: {numid: documento}});
-        console.log('data api',res.data)
-        return res
-      }
-    
-      const onChangedc = (e) => {
-        setDocumento(e.currentTarget.value);
-        console.log(documento)
-      };
-    
-      const onChangenm = (e) => {
-        setNombre(e.currentTarget.value);
-        console.log(nombre)
-      };  
-
-      const onChangeap = (e) => {
-        setApellido(e.currentTarget.value)
-        
       }
 
       //Onchange agregado para edad
@@ -125,24 +87,8 @@ export const Principal = () => {
         console.log('Se hizo click');
          validacionTipo()
          guardabase()
+         buttonEnviar.disabled=true
       }
-
-    const consulta = () => {
-        console.log('Se hizo click consulta');
-        consultabase()
-        validacionTipo()
-        
-    }
-
-      const actualiza = () => {
-        console.log('Se hizo click actualiza');
-        actualizabase() 
-      }
-
-      const elimina = () => {
-        console.log('Se hizo click elimina');
-        eliminabase() 
-      }      
 
       const esSeleccionado = (opcion, value) => {
         if(opcion===value){
@@ -171,9 +117,6 @@ export const Principal = () => {
     return (
         <div  className="formdb__box-containter">
             <h3 className="auth__title">PRINCIPAL</h3>
-
-              <br />
-              <p>La edad seleccionada es: <b>{edad}</b></p>
 
               <FormGroup>
                 <Label for="CheckboxEdad">¿En qué rango de edad se encuentra?</Label>
@@ -262,7 +205,7 @@ export const Principal = () => {
 
  
                 <button
-                className="btn btn-primary" 
+                className="btnEnviar btn btn-primary" 
                 type="button"
                 onClick={()=>inserta()}>
                   enviar info
@@ -285,33 +228,6 @@ export const Principal = () => {
                   Siguiente sección Deporte
                 </button>
                 </Link>
-
-
-                
-
-                <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>consulta()}
-                > 
-                consultar
-                </button>
-
-                <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>elimina()}
-                > 
-                eliminar
-                </button>
-
-                <button
-                className="btn btn-primary" 
-                type="button"
-                onClick={()=>actualiza()}
-                > 
-                actualizar
-                </button>
         </div>
     )
 }
