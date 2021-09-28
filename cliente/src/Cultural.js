@@ -151,7 +151,7 @@ export const Cultural = () => {
     return (
         <div  className="formdb__box-containter">
 
-            <h3 className="auth__title">FORMULARIO CULTURAL</h3>
+            <h3 className="auth__title">CULTURAL</h3>
             
             <FormGroup>
                 <Label for="CheckboxNombre_evento">¿Qué evento cultural te gusta más?</Label>
