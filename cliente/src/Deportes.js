@@ -152,17 +152,17 @@ export const Deportes = () => {
       }
 
       const validacionEvento = () => {
-        if(nombre_evento=='futbol'){
+        if(nombre_evento==='futbol'){
           buttonFutbol.disabled = false
           buttonCiclismo.disabled = true
           buttonLucha.disabled = true
           buttonAutomovilismo.disabled = true
-        }else if(nombre_evento=='ciclismo'){
+        }else if(nombre_evento==='ciclismo'){
           buttonCiclismo.disabled = false
           buttonFutbol.disabled = true
           buttonLucha.disabled = true
           buttonAutomovilismo.disabled = true
-        }else if(nombre_evento=='lucha libre'){
+        }else if(nombre_evento==='lucha libre'){
           buttonLucha.disabled = false
           buttonFutbol.disabled = true
           buttonCiclismo.disabled = true
@@ -172,7 +172,7 @@ export const Deportes = () => {
           buttonFutbol.disabled = true
           buttonCiclismo.disabled = true
           buttonLucha.disabled = true
-        }
+        } 
       }
             
     return (

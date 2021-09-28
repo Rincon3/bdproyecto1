@@ -74,6 +74,29 @@ router.post('/insertarEncuestaFutbol', async (req, res) => {
   res.send('INSERTADO');
 });
 
+router.post('/insertarEncuestaCiclismo', async (req, res) => {
+  const { bicicleta, participar_ciclista } = req.body;
+  await client.query(
+    `INSERT INTO ciclismo(id_usuario, bicicleta, participar_ciclista) VALUES((SELECT max(id_usuario) FROM principal), '${bicicleta}', '${participar_ciclista}')`
+  );
+  res.send('INSERTADO');
+});
+
+router.post('/insertarEncuestaLucha', async (req, res) => {
+  const {} = req.body;
+  await client.query(
+    `INSERT INTO lucha(id_usuario) VALUES((SELECT max(id_usuario) FROM principal))`
+  );
+  res.send('INSERTADO');
+});
+
+router.post('/insertarEncuestaAutomovilismo', async (req, res) => {
+  const { tipo_evento } = req.body;
+  await client.query(
+    `INSERT INTO automovilismo(id_usuario, tipo_evento) VALUES((SELECT max(id_usuario) FROM principal), '${tipo_evento}')`
+  );
+  res.send('INSERTADO');
+});
 
 router.delete('/eliminarpacientes', async (req, res) => {
   const { numid } = req.body;

@@ -3,6 +3,9 @@ import { Cultural } from './Cultural'
 import { Principal } from './Principal'
 import { Deportes } from './Deportes'
 import { Futbol } from './Futbol'
+import { Ciclismo } from './Ciclismo'
+//import { Lucha } from './Lucha'
+//import { Automovilismo} from './Automovilismo'
 
 export const FormPrincipal = () => {
     return (
@@ -35,3 +38,29 @@ export const FormFutbol = () => {
         </div>
     )
 }
+
+export const FormCiclismo = () => {
+    return (
+        <div className="formdb__main">
+            <Ciclismo/>
+        </div>
+    )
+}
+
+/*
+export const FormLucha = () => {
+    return (
+        <div className="formdb__main">
+            <Lucha/>
+        </div>
+    )
+}
+
+export const FormAutomovilismo = () => {
+    return (
+        <div className="formdb__main">
+            <Automovilismo/>
+        </div>
+    )
+}
+*/
