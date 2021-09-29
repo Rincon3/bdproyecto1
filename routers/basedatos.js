@@ -16,9 +16,9 @@ const router = new Router();
 // export our router to be mounted by the parent application
 module.exports = router;
 
-router.get('/consultatotalpacientes', async (req, res) => {
+router.get('/consultaPromedioIntereses', async (req, res) => {
   //const { id } = req.params
-  const { rows } = await client.query('SELECT * FROM pacientes');
+  const { rows } = await client.query('SELECT promedio_deporte, promedio_cultura FROM promedio ORDER BY id_usuario DESC LIMIT 1');
   res.send(rows);
 });
 
@@ -135,3 +135,5 @@ router.post('/insertarEncuestaTeatro', async (req, res) => {
         );
         res.send('INSERTADO');
       });
+
+      

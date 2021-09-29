@@ -3,6 +3,9 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import { CustomInput, FormGroup, Label } from 'reactstrap';
 
+var promedio_deporte;
+var promedio_cultura;
+
 export const Principal = () => {
 
   const [edad, setEdad] = useState('')
@@ -21,6 +24,7 @@ export const Principal = () => {
   
 
 
+
     const guardabase = async () => {
         const res = await axios.post('/basedatos/insertarEncuestaprincipal', {edad, eventos_donde, lugares_eventos, dia, tipo, transporte, promo, int_cultura, int_deporte});
         console.log(res.data)
@@ -33,6 +37,16 @@ export const Principal = () => {
         setPromo('')
         setInt_cultura('')
         setInt_deporte('')
+      }
+
+      const  consultabase = async () => {
+        const res = await axios.get('/basedatos/consultaPromedioIntereses');
+        console.log('data api',res.data)
+        promedio_deporte=(res.data[0].promedio_deporte).toFixed(2);
+        promedio_cultura=(res.data[0].promedio_cultura).toFixed(2);
+        console.log(promedio_deporte)
+        console.log(promedio_cultura)
+        return res
       }
 
       //Onchange agregado para edad
@@ -90,6 +104,11 @@ export const Principal = () => {
          buttonEnviar.disabled=true
       }
 
+      const consulta = () => {
+        console.log('Se hizo click consulta');
+        consultabase() 
+    }
+
       const esSeleccionado = (opcion, value) => {
         if(opcion===value){
           return true;
@@ -121,18 +140,18 @@ export const Principal = () => {
               <FormGroup>
                 <Label for="CheckboxEdad">¿En qué rango de edad se encuentra?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioEdad1" label="18 - 25" value="18 - 25" checked={esSeleccionado(edad, "18 - 25")} onChange={onchangeEdad} />
-                  <CustomInput type="radio" id="radioEdad2" label="26 - 35" value="26 - 35" checked={esSeleccionado(edad, "26 - 35")} onChange={onchangeEdad} />
-                  <CustomInput type="radio" id="radioEdad3" label="36 - 45" value="36 - 45" checked={esSeleccionado(edad, "36 - 45")} onChange={onchangeEdad} />
-                  <CustomInput type="radio" id="radioEdad4" label="46 - más" value="46 - más" checked={esSeleccionado(edad, "46 - más")} onChange={onchangeEdad} />
+                  <CustomInput type="radio" id="radioEdad1" label="18 - 25" value="18 - 25" checked={esSeleccionado(edad, "18 - 25")} onChange={onchangeEdad} onClick={()=>consulta()}/>
+                  <CustomInput type="radio" id="radioEdad2" label="26 - 35" value="26 - 35" checked={esSeleccionado(edad, "26 - 35")} onChange={onchangeEdad} onClick={()=>consulta()} />
+                  <CustomInput type="radio" id="radioEdad3" label="36 - 45" value="36 - 45" checked={esSeleccionado(edad, "36 - 45")} onChange={onchangeEdad} onClick={()=>consulta()} />
+                  <CustomInput type="radio" id="radioEdad4" label="46 - más" value="46 - más" checked={esSeleccionado(edad, "46 - más")} onChange={onchangeEdad} onClick={()=>consulta()} />
                 </div>
               </FormGroup>
 
               <FormGroup>
                 <Label for="CheckboxEventosdonde">¿Cómo te gustan que sean los eventos?</Label>
                 <div>
-                  <CustomInput type="radio" id="radioEventodonde1" label="Al aire libre" value="aire libre" checked={esSeleccionado(eventos_donde, "aire libre")} onChange={onchangeEventos_donde} />
-                  <CustomInput type="radio" id="radioEventodonde2" label="En sitios cerrados" value="sitio cerrado" checked={esSeleccionado(eventos_donde, "sitio cerrado")} onChange={onchangeEventos_donde} />
+                  <CustomInput type="radio" id="radioEventodonde1" label="Al aire libre" value="aire libre" checked={esSeleccionado(eventos_donde, "aire libre")} onChange={onchangeEventos_donde} onClick={()=>consulta()} />
+                  <CustomInput type="radio" id="radioEventodonde2" label="En sitios cerrados" value="sitio cerrado" checked={esSeleccionado(eventos_donde, "sitio cerrado")} onChange={onchangeEventos_donde} onClick={()=>consulta()} />
                 </div>
               </FormGroup>
 
@@ -184,6 +203,7 @@ export const Principal = () => {
               </FormGroup>
               <FormGroup>
                 <Label for="CheckboxInt_cultura">¿Te gustan los eventos culturales?</Label>
+                <p>Este es el promedio del interes cultural: <b>{promedio_cultura}</b></p>
                 <div>
                   <CustomInput type="radio" id="radioInt_cultura1" label={1} value={1}checked={esSeleccionado(int_cultura, "1")} onChange={onchangeInt_cultura}/>
                   <CustomInput type="radio" id="radioInt_cultura2" label={2} value={2}checked={esSeleccionado(int_cultura, "2")} onChange={onchangeInt_cultura}/>
@@ -194,6 +214,7 @@ export const Principal = () => {
               </FormGroup>
               <FormGroup>
                 <Label for="CheckboxInt_deporte">¿Te gustan los eventos deportivos?</Label>
+                <p>Este es el promedio del interes deportivo: <b>{promedio_deporte}</b></p>
                 <div>
                   <CustomInput type="radio" id="radioInt_deporte1" label="1" value={1}checked={esSeleccionado(int_deporte, "1")} onChange={onchangeInt_deporte}/>
                   <CustomInput type="radio" id="radioInt_deporte2" label="2" value={2}checked={esSeleccionado(int_deporte, "2")} onChange={onchangeInt_deporte}/>
@@ -202,7 +223,6 @@ export const Principal = () => {
                   <CustomInput type="radio" id="radioInt_deporte5" label="5" value={5}checked={esSeleccionado(int_deporte, "5")} onChange={onchangeInt_deporte}/>
                 </div>
               </FormGroup>
-
  
                 <button
                 className="btnEnviar btn btn-primary" 
@@ -228,6 +248,14 @@ export const Principal = () => {
                   Siguiente sección Deporte
                 </button>
                 </Link>
+
+                <button
+                className="btn btn-primary" 
+                type="button"
+                onClick={()=>consulta()}
+                > 
+                consultar
+                </button>
         </div>
     )
 }
