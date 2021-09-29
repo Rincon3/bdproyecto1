@@ -216,7 +216,7 @@ export const Cultural = () => {
 
                 <Link to="/FormConcierto">
                 <button
-                class="btnConcierto btn btn-primary"
+                className="btnConcierto btn btn-primary"
                 disabled 
                 type="button">
                   Sección Concierto
@@ -225,7 +225,7 @@ export const Cultural = () => {
 
                 <Link to="/FormTeatro">
                 <button
-                class="btnTeatro btn btn-primary" 
+                className="btnTeatro btn btn-primary" 
                 disabled
                 type="button">
                   Sección Teatro
@@ -233,7 +233,7 @@ export const Cultural = () => {
                 </Link>
                 <Link to="/FormPeliculas">
                 <button
-                class="btnPeliculas btn btn-primary" 
+                className="btnPeliculas btn btn-primary" 
                 disabled
                 type="button">
                   Sección Peliculas
@@ -241,7 +241,7 @@ export const Cultural = () => {
                 </Link>
                 <Link to="/FormDanza">
                 <button
-                class="btnDanzas btn btn-primary" 
+                className="btnDanzas btn btn-primary" 
                 disabled
                 type="button">
                   Sección Danza

@@ -12,12 +12,3 @@ ReactDOM.render(
     <App />,
   document.getElementById('root')
 );
-
-/*
-ReactDOM.render(
-    <Formdb />,
-  document.getElementById('root')
-);
-*/
-
-

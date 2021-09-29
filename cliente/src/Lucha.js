@@ -68,9 +68,9 @@ export const Lucha = () => {
                   enviar info
                 </button>
 
-                <Link to="FormPrincipal">
+                <Link to="">
                 <button
-                class="btnTerminar btn btn-primary" 
+                className="btnTerminar btn btn-primary" 
                 disabled
                 type="button"
                 onClick={()=>termina()}>Terminar encuesta

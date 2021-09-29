@@ -215,7 +215,7 @@ export const Deportes = () => {
 
                 <Link to="FormFutbol">
                 <button
-                class="btnFutbol btn btn-primary" 
+                className="btnFutbol btn btn-primary" 
                 disabled
                 type="button">
                   Siguiente sección Futbol
@@ -224,7 +224,7 @@ export const Deportes = () => {
 
                 <Link to="/FormCiclismo" >
                 <button
-                class="btnCiclismo btn btn-primary" 
+                className="btnCiclismo btn btn-primary" 
                 disabled
                 type="button">
                   Siguiente sección Ciclismo
@@ -233,7 +233,7 @@ export const Deportes = () => {
 
                 <Link to="/FormLucha" >
                 <button
-                class="btnLucha btn btn-primary" 
+                className="btnLucha btn btn-primary" 
                 disabled
                 type="button">
                   Siguiente sección Lucha libre
@@ -242,7 +242,7 @@ export const Deportes = () => {
 
                 <Link to="/FormAutomovilismo" >
                 <button
-                class="btnAutomovilismo btn btn-primary" 
+                className="btnAutomovilismo btn btn-primary" 
                 disabled
                 type="button">
                   Siguiente sección Automovilismo

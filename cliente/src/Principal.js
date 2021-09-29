@@ -213,7 +213,7 @@ export const Principal = () => {
 
                 <Link to="FormCultural">
                 <button
-                class="btnCultura btn btn-primary" 
+                className="btnCultura btn btn-primary" 
                 disabled
                 type="button">
                   Siguiente sección Cultura
@@ -222,7 +222,7 @@ export const Principal = () => {
 
                 <Link to="/FormDeportes" >
                 <button
-                class="btnDeporte btn btn-primary" 
+                className="btnDeporte btn btn-primary" 
                 disabled
                 type="button">
                   Siguiente sección Deporte
