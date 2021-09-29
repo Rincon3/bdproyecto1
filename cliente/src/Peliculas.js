@@ -72,7 +72,7 @@ export const Peliculas = () => {
                   <CustomInput type="radio" id="radioGenero3" label="aventura" value="aventura" checked={esSeleccionado(genero, "aventura")} onChange={onChangeGenero} />
                   <CustomInput type="radio" id="radioGenero4" label="terror" value="terror" checked={esSeleccionado(genero, "terror")} onChange={onChangeGenero} />
                   <CustomInput type="radio" id="radioGenero5" label="musicales" value="tecno" checked={esSeleccionado(genero, "tecno")} onChange={onChangeGenero} />
-                  <CustomInput type="radio" id="radioGenero6" label="dramatias" value="dramatias" checked={esSeleccionado(genero, "dramatias")} onChange={onChangeGenero} />
+                  <CustomInput type="radio" id="radioGenero6" label="dramaticas" value="dramaticas" checked={esSeleccionado(genero, "dramaticas")} onChange={onChangeGenero} />
                   <CustomInput type="radio" id="radioGenero7" label="ciencia ficcion" value="ciencia ficcion" checked={esSeleccionado(genero, "ciencia ficcion")} onChange={onChangeGenero} />
                   <CustomInput type="radio" id="radioGenero8" label="fantasia" value="fantasia" checked={esSeleccionado(genero, "fantasia")} onChange={onChangeGenero} />
                 </div>
