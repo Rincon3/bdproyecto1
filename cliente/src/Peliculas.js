@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import { Link } from 'react-router-dom';
 import axios from 'axios'
 import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
 
@@ -9,8 +9,8 @@ export const Peliculas = () => {
   const [formato, setFormato] = useState('')
   const [autocine, setAutocine] = useState('')
   
-  
-
+  const buttonTerminar = document.querySelector(".btnTerminar");
+  const buttonEnviar = document.querySelector(".btnEnviar");
 
     const guardabase = async () => {
         const res = await axios.post('/basedatos/insertarEncuestaCultural', {genero });
@@ -19,37 +19,34 @@ export const Peliculas = () => {
         console.log(res2.data)
         setGenero('')
         setFormato('')
-        setAutocine('')
-      
-        
-
+        setAutocine('')    
       }
     
-      
 //onchange de genero
       const onChangeGenero = (e) => {
         setGenero(e.currentTarget.value);
         console.log(genero)
       };
+
       //onchange de formato
       const onchangeFormato = (e) => {
         setFormato(e.currentTarget.value);
         console.log(formato)
       };
+
       //onchange de autocine
       const onchangeAutocine = (e) => {
         setAutocine(e.currentTarget.value);
         console.log(autocine)
       };
 
-      
-
     const inserta = () => {
         console.log('Se hizo click');
          guardabase()
+         buttonTerminar.disabled=false
+         buttonEnviar.disabled=true
       }
      
-
       const esSeleccionado = (opcion, value) => {
         if(opcion===value){
           return true;
@@ -62,7 +59,6 @@ export const Peliculas = () => {
         <div  className="formdb__box-containter">
             <h3 className="auth__title">Peliculas</h3>
             <Form>
-              
 
               <FormGroup>
                 <Label for="CheckboxGenero">¿Qué género de peliculas es la que mas te llama la atención?</Label>
@@ -93,17 +89,22 @@ export const Peliculas = () => {
                   <CustomInput type="radio" id="radioAutocine2" label="No" value="no" checked={esSeleccionado(autocine, "no")} onChange={onchangeAutocine} />
                 </div>
               </FormGroup>
-                
 
-                
-                
                 <button
-                className="btn btn-primary" 
+                className="btnEnviar btn btn-primary" 
                 type="button"
                 onClick={()=>inserta()}
                 > 
                 enviar info
                 </button>
+
+                <Link to="">
+                <button
+                className="btnTerminar btn btn-primary" 
+                disabled
+                type="button">Terminar encuesta
+                </button>
+                </Link>
 
             </Form>
         </div>

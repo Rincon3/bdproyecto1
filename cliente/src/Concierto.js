@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import { Link } from 'react-router-dom';
 import axios from 'axios'
 import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
 
@@ -7,10 +7,9 @@ export const Concierto = () => {
 
   const [genero, setGenero] = useState('')
   const [artista, setArtista] = useState('')
+  
+  const buttonTerminar = document.querySelector(".btnTerminar");
   const buttonEnviar = document.querySelector(".btnEnviar");
-  
-  
-
 
     const guardabase = async () => {
         const res = await axios.post('/basedatos/insertarEncuestaCultural', {genero });
@@ -19,12 +18,8 @@ export const Concierto = () => {
         console.log(res2.data)
         setGenero('')
         setArtista('')
-      
-        
-
       }
     
-      
 //onchange de genero
       const onChangeGenero = (e) => {
         setGenero(e.currentTarget.value);
@@ -36,14 +31,12 @@ export const Concierto = () => {
         console.log(artista)
       };
 
-      
-
     const inserta = () => {
         console.log('Se hizo click');
          guardabase()
+         buttonTerminar.disabled=false
          buttonEnviar.disabled=true
       }
-     
 
       const esSeleccionado = (opcion, value) => {
         if(opcion===value){
@@ -83,9 +76,6 @@ export const Concierto = () => {
                 </div>
               </FormGroup>
                 
-
-                
-                
                 <button
                 className="btnEnviar btn btn-primary" 
                 type="button"
@@ -93,6 +83,14 @@ export const Concierto = () => {
                 > 
                 enviar info
                 </button>
+
+                <Link to="">
+                <button
+                className="btnTerminar btn btn-primary" 
+                disabled
+                type="button">Terminar encuesta
+                </button>
+                </Link>
 
             </Form>
         </div>
